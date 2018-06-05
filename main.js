@@ -79,12 +79,12 @@ function callCupcakePage(mood){
     clickReset();
 //--------------------------------Creating the page here---------------------------------------
     $(".selectQ").addClass("cakeHeader").removeClass("selectQ").text('');
-    $(".selectBox1").addClass("cakeNav").removeClass("selectBox1").text('');
-    $(".selectBox2").addClass("cakeName").removeClass("selectBox2").text('');
-    let adddiv1 = $("<div>").addClass("cakeImg");
-    let adddiv2 = $("<div>").addClass("allergyBar");
-    let adddiv3 = $("<div>").addClass("recipeBox");
-    $(".col-xs-10").append(adddiv1, adddiv2, adddiv3);
+    $(".tab").css("display", "block");
+    $(".selectBox1").addClass("cakeName").removeClass("selectBox1").text('');
+    $(".selectBox2").addClass("cakeImg").removeClass("selectBox2").text('');
+    let adddiv1 = $("<div>").addClass("allergyBar");
+    let adddiv2 = $("<div>").addClass("recipeBox");
+    $(".col-xs-10").append(adddiv1, adddiv2);
     cupcakeChooser();
 
     console.log("recommending cupcakes for ", mood)
