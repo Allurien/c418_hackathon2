@@ -3,8 +3,8 @@
     <head>
             <style>
         #map {
-          height: 50vh;
-          width: 50vw;
+          height: 100vh;
+          /* width: 50vw; */
         }
         html, body {
           height: 100%;
@@ -20,6 +20,8 @@
 
             var map;
             var infowindow;
+            var latitude;
+            var longitude;
 
             function initializeApp(){
                 $("#submit").on("click", getZipValue);
@@ -28,21 +30,17 @@
             function getZipValue() {
                 var zipcodeNumber = $("#zipcode").val();
                 console.log(zipcodeNumber);
-                latLong();
-            }
-
-            function latLong() {
                 var lng="";
                 var lat="";
                 var address = zipcodeNumber;
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({ 'address': address }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        var latitude = results[0].geometry.location.lat();
-                        var longitude = results[0].geometry.location.lng();
-                        alert("Latitude: " + latitude + "\nLongitude: " + longitude);
+                        latitude = results[0].geometry.location.lat();
+                        longitude = results[0].geometry.location.lng();
+                        console.log(latitude, longitude);
                     } else {
-                        alert("Request failed.")
+                        console.log("failed");
                     }
                 });
             };
@@ -50,7 +48,8 @@
             function initMap() {
             //Initial location is LearningFuze
                 var currLocation = {lat: 33.634875, lng: -117.740481};
-
+                // var currLocation = {lat: latitude, lng: longitude};
+                console.log(currLocation);
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: currLocation,
                     zoom: 13
@@ -83,18 +82,19 @@
                     scaledSize: new google.maps.Size(30, 30)
                     };
 
-                var marker = new google.maps.Marker({
+                var cupcakeMarker = new google.maps.Marker({
                     map: map,
                     icon: image,
                     animation: google.maps.Animation.DROP,
                     position: place.geometry.location
                 });
 
-                google.maps.event.addListener(marker, 'click', function() {
+                google.maps.event.addListener(cupcakeMarker, 'click', function() {
                     infowindow.setContent(place.name);
                     infowindow.open(map, this);
                 });
             }
+
 
         </script>
         
