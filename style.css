@@ -6,8 +6,10 @@
     background-color: darkslateblue;
     height: 40vw;
     margin-top: 5vh;
-    line-height: 40vw;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .selectBox1{
     background-color: red;
