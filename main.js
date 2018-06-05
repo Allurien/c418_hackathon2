@@ -2,25 +2,12 @@
 $(document).ready(allTheThings);
 
 function allTheThings(){
-    // attachClickHandlers();
     choosyMoody();
 };
 
-// function attachClickHandlers(){
-//     $(".selectQ").on("click", choosyMoody);
-// };
-
-// function clickUpdater(){
-//     let question = $(".selectQ")
-
-//     if (question.hasClass("QMood")){
-//         choosyMoody();
-//     }
-// }
-
 function choosyMoody(){
     $(".selectQ").text("How are you feeling today?");
-    var mood = null;
+    let mood = null;
 
     $(".selectBox1").text("Happy").on("click", function(){
         mood = "happy";
@@ -66,29 +53,50 @@ function bakeCupcakes(mood){
 
     if (mood === "happy"){
         $(".selectBox1").text("Sweet!").on("click", function(){
-            recommendCupcakes(mood);
+            mood += "Sweet";
+            callCupcakePage(mood);
         });
         $(".selectBox2").text("Salty!").on("click", function(){
-            recommendCupcakes(mood);
+            mood += "Salty";
+            callCupcakePage(mood);
         });
     }
     if (mood === "sad"){
         $(".selectBox1").text("Sweet").on("click", function(){
-            recommendCupcakes(mood);
+            mood += "Sweet";
+            callCupcakePage(mood);
         });
         $(".selectBox2").text("Salty").on("click", function(){
-            recommendCupcakes(mood);
+            mood += "Salty"
+            callCupcakePage(mood);
         });
     }
 
     console.log("baking cupcakes!", mood);
 };
 
-function recommendCupcakes(mood){
+function callCupcakePage(mood){
     clickReset();
+//--------------------------------Creating the page here---------------------------------------
+    $(".selectQ").addClass("cakeHeader").removeClass("selectQ").text('');
+    $(".selectBox1").addClass("cakeNav").removeClass("selectBox1").text('');
+    $(".selectBox2").addClass("cakeName").removeClass("selectBox2").text('');
+    let adddiv1 = $("<div>").addClass("cakeImg");
+    let adddiv2 = $("<div>").addClass("allergyBar");
+    let adddiv3 = $("<div>").addClass("recipeBox");
+    $(".col-xs-10").append(adddiv1, adddiv2, adddiv3);
+    cupcakeChooser();
 
     console.log("recommending cupcakes for ", mood)
 };
+
+//---------------------------------Randomizer based on mood here------------------------------------
+
+function cupcakeChooser(mood){
+
+};
+
+//--------------------------------------------------------------------------------------------------
 
 function clickReset(){
     $(".selectBox1, .selectBox2").off("click");
