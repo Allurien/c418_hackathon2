@@ -38,6 +38,7 @@ function getVideoData() {
 } //end getData()
 
 function generateDOM(videoList) {
+    debugger;
     console.log('inside generateDom video ', videoList);
     //{title: "Cupcake Decorating Ideas | FUN and Easy Cupcake Recipes by So Yummy", 
     //    id: "YsxtAMlWfj8"}
@@ -54,7 +55,7 @@ function generateDOM(videoList) {
             'allowfullscreen': true
         });
 
-        $('.container').append(iframe);
+        $('.youtubeContainer').append(iframe);
     } //end for loop
 
 } //end generateDOM()
