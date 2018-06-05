@@ -5,8 +5,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>CheerupCupcake!</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="style.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="main.js"></script>
             <script src="youtube.js"></script>
@@ -14,11 +14,38 @@
     <body>
         <div class="container">
             <div class="row">
+
+                <div class="tab">
+                    <button class="tablinks" onclick="showCategory(event, 'recipeTab')">recipe</button>
+                    <button class="tablinks" onclick="showCategory(event, 'videoTab')">video</button>      
+                    <button class="tablinks" onclick="showCategory(event, 'decorateTab')">Decorate</button>
+                </div>
+                
+                <div id="recipeTab" class="tabcontent">
+                    <h3>Recipe</h3>
+                    <p>Try this.</p>
+                </div>
+
+                <div id="videoTab" class="tabcontent">
+                    <h3>Video</h3>
+                    <p>Watch a video.</p>
+                    <div class='youtubeContainer'>
+                        <div >
+                            <button id="getYoutube" class="btn btn-outline-primary">Get youtube</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="decorateTab" class="tabcontent">
+                    <h3>Decorate</h3>
+                    <p>beauitify your cupcake.</p> 
+                </div>
+
                 <div class="col-xs-1"></div>
                 <div class="col-xs-10">
                     <div class="selectQ">Question</div>
                     <div class="selectBox1">Choice #1</div>
-                    <div class="selectBox2">Choice #2</div>
+                    <div class="selectBox2"> Choice #2</div>
                 </div>
                 <div class="col-xs-1"></div>
             </div>
@@ -30,11 +57,11 @@
 
 
         <!--- below test youtube -->
-        <div class='container'>
-            <div >
-                <button class="btn btn-outline-primary">Get youtube</button>
-            </div>
-        </div>
+         
+          
+          
+
+        
        
         <script src="youtube.js"></script>
     </body>

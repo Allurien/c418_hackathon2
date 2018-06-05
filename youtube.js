@@ -2,7 +2,7 @@ $(document).ready(init);
 
 function init() {
     //alert('youtube hi');
-    $('button').on('click', getVideoData);
+    $('#getYoutube').on('click', getVideoData);
 
 }
 
@@ -41,7 +41,6 @@ function generateDOM(videoList) {
     console.log('inside generateDom video ', videoList);
     //{title: "Cupcake Decorating Ideas | FUN and Easy Cupcake Recipes by So Yummy", 
     //    id: "YsxtAMlWfj8"}
-
     for (let i = 0; i < videoList.length; i++) {
         let videoID = videoList[i].id;
         console.log('video id ', videoID);
@@ -54,7 +53,21 @@ function generateDOM(videoList) {
             'allowfullscreen': true
         });
 
-        $('.container').append(iframe);
+        $('.youtubeContainer').append(iframe);
     } //end for loop
 
 } //end generateDOM()
+
+function showCategory(evt, category) {
+    let i, tabcontent, tablinks;
+    tabcontent = $(".tabcontent");
+    tabcontent.hide();
+    
+    tablinks = $(".tablinks");
+    $(".tablinks.active").removeClass('active')
+    
+    $("#category").hide();
+    $(evt.currentTarget).addClass('active');
+    
+    $("#"+category).show();
+}
