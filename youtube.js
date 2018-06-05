@@ -2,12 +2,12 @@ $(document).ready(init);
 
 function init() {
     //alert('youtube hi');
-    $('button').on('click', getData);
+    $('button').on('click', getVideoData);
 
 }
 
 
-function getData() {
+function getVideoData() {
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = 'salt chocolate  cupcake';
     //let q = $('input').val()
