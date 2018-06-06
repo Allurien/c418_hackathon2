@@ -1,18 +1,17 @@
 
+@font-face {
+    font-family: cuteFont;
+    src: url(fonts/cuteFont.ttf);
+}
 body{
-    margin: 0;
+    font-family: cuteFont, sans-serif;
+    height: 100vh;
+    width: 100vw;
 }
-.container{
-    color: white;
-}
-.selectQ{
-    background-color: darkslateblue;
-    height: 40vw;
-    margin-top: 5vh;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.backgroundImg{
+    background-image: url("images/circles.jpg");
+    background-position: top;
+    background-size: contain;
 }
 
 /* ---------------------------------------------------- */
@@ -22,10 +21,11 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 2vh;
 }
 .zipLayout {
   margin: auto;
+  text-align: center;
 }
 #zipcode {
   border: 1px solid black;
@@ -36,7 +36,7 @@ body{
   justify-content: center;    
 }
 #map {
-  height: 50vh;
+  /* height: 50vh; */
   margin: 3vh;
 }
 #submit {
@@ -50,17 +50,19 @@ body{
 
 .cakePage{
     display: block;
-    margin: 1vmin;
+    height: 100%;
 }
 .cakeHeader{
     background-color: darkslateblue;
     height: 30vw;
 }
 
+.tabContainer{
+    height: 10vh;
+}
 .tab {
-    /* display: none; */
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(202, 80, 80);
     background-color: #f1f1f1;
 }
 
@@ -95,21 +97,37 @@ body{
     border-top: none;
 }
 /* ---------------------------------------------------- */
+.selectQ, .selectBox1, .selectBox2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: cadetblue;
+    font-size: 6vmin;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-.selectBox1{
-    background-color: red;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+.selectQ{
+    background-image: url(images/6.png);
+    background-size: cover;
+    height: 40%;
 }
+
+.selectBox1, .selectBox2{
+    background-image: url(images/7.png);
+    background-size: 80%;
+    height: 25%;
+}
+
 .selectBox2{
-    background-color: blue;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+    margin-top: 5%;
 }
+.qText{
+    width: 80%;
+}
+
 /* ---------------------------------------------------- */
 
 .cakeName{
@@ -128,11 +146,11 @@ body{
     background-color: palevioletred;
     height: 100vw;
 }
-.row2{
-    margin: 0;
+
+.row{
+    display: none;
 }
 .restartButton{
-    display: none;
     background-color: palegreen;
     height: 10vw;
     width: 35vw;
@@ -145,5 +163,9 @@ body{
 }
 
 .decoPage{
+    display: none;
+}
+
+.mapPage{
     display: none;
 }
