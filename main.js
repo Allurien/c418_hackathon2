@@ -2,6 +2,7 @@
 $(document).ready(allTheThings);
 
 function allTheThings(){
+    showModal();
     attachClickHandlers();
     choosyMoody();
     // changeButtonTextAndApplyClickHandler()

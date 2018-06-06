@@ -169,3 +169,35 @@ body{
 .mapPage{
     display: none;
 }
+
+
+
+
+
+
+
+
+/* model */
+#modelShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+    
+  }
+
+  #modelBody {
+    position: fixed;
+    left: 40%;
+    top: 50%;
+   
+    min-width: 80%;
+    min-height: 80%;
+    background-image: url(images/model.gif);
+    background-size:cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+  }

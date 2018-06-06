@@ -4,9 +4,9 @@ function init() {
 
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
+   // $('.tabContainer').on('click','#getYoutube', getVideoData);
     $('.tabContainer').on('click','.videoTabButton', getVideoData);
-    //$('.tabContainer').on('click', '#videoTab', getVideoData);
-
+   
 }
 
 function generateTabDom() {
@@ -18,7 +18,7 @@ function generateTabDom() {
         class: 'tab'
     });
 
-    var categoryArr = ['recipeTab', 'videoTab'];
+    var categoryArr = ['recipeTab', 'videoTab', 'decorateTab'];
     for (var i = 0; i < 3; i++) {
         var tabButton = $('<button>', {
             class: `tablinks  ${categoryArr[i]}Button`,
@@ -51,8 +51,7 @@ function generateTabDom() {
         $('.tabContainer').append(tab);
     } //end for
 
-    var recipeTab = 
-    $('<div>', {
+    var recipeTab = $('<div>', {
         id: 'recipeTab',
         class: 'tabcontent',
         'h3': 'Recipe'
@@ -60,7 +59,7 @@ function generateTabDom() {
 
     var videoTab = $('<div>', {
         id: 'videoTab',
-        class: 'tabcontent getyoutubeV',
+        class: 'tabcontent',
         'h3': 'Video'
     });
 
@@ -68,27 +67,27 @@ function generateTabDom() {
         class: 'youtubeContainer'
     });
 
-    var youtubeButton = $('<button>', {
-        id: 'getYoutube',
-        class: 'btn btn-outline-primary',
-        text: 'Get youtube'
-    });
-    var i = $('<i>', {
-        class: "fa fa-youtube"
-    });
-    youtubeButton.append(i);
-    youtubeContainer.append(youtubeButton);
+    // var youtubeButton = $('<button>', {
+    //     id: 'getYoutube',
+    //     class: 'btn btn-outline-primary',
+    //     text: 'Get youtube'
+    // });
+    // var i = $('<i>', {
+    //     class: "fa fa-youtube"
+    // });
+    // youtubeButton.append(i);
+    //youtubeContainer.append(youtubeButton);
     videoTab.append(youtubeContainer);
 
-    // var decorateTab = $('<div>', {
-    //     id: 'decorateTab',
-    //     class: 'tabcontent',
-    //     h3: 'Decorate'
-    // });
+    var decorateTab = $('<div>', {
+        id: 'decorateTab',
+        class: 'tabcontent',
+        h3: 'Decorate'
+    });
 
     $('.tabContainer').append(recipeTab);
     $('.tabContainer').append(videoTab);
-    // $('.tabContainer').append(decorateTab);
+    $('.tabContainer').append(decorateTab);
 
 } // end generateTabDom()
 
@@ -144,3 +143,14 @@ function generateVideoDOM(videoList) {
     } //end for loop
 
 } //end generateDOM()
+
+
+function showModal() {
+
+    alert('model');
+    $('#modelShadow').css('display', 'block');
+    setTimeout(function () {
+    
+        $('#modelShadow').css('display', 'none');
+    }, 5000);
+}// end showWinModal()
