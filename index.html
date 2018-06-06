@@ -5,41 +5,27 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>CheerupCupcake!</title>
+            <link rel="stylesheet" href="asset/font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="style.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXK1lum1zgLcoIodIKfbowX2Up4qLzwoU&libraries=places" async defer></script>
+            <script src="maps.js"></script>
             <script src="main.js"></script>
             <script src="youtube.js"></script>
+        
     </head>
     <body class="backgroundImg container">
         <!-- <div class="container"> -->
             <!-- <div class="row row1"> -->
 
-                <div class="tab">
-                    <button class="tablinks recipeTabButton" onclick="showCategory(event, 'recipeTab')">recipe</button>
+                <div class="tab tabContainer">
+<!--                     <button class="tablinks recipeTabButton" onclick="showCategory(event, 'recipeTab')">recipe</button>
                     <button class="tablinks videoTabButton" onclick="showCategory(event, 'videoTab')">video</button>      
-                    <button class="tablinks decorateTabButton" onclick="showCategory(event, 'decorateTab')">Decorate</button>
+                    <button class="tablinks decorateTabButton" onclick="showCategory(event, 'decorateTab')">Decorate</button> -->
                 </div>
-                
-                <div id="recipeTab" class="tabcontent">
-                    <h3>Recipe</h3>
-                    <p>Try this.</p>
-                </div>
+           
 
-                <div id="videoTab" class="tabcontent">
-                    <h3>Video</h3>
-                    <p>Watch a video.</p>
-                    <div class='youtubeContainer'>
-                        <div >
-                            <button id="getYoutube" class="btn btn-outline-primary">Get youtube</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="decorateTab" class="tabcontent">
-                    <h3>Decorate</h3>
-                    <p>beauitify your cupcake.</p> 
-                </div>
 
                 <!-- <div class="col-xs-1"></div> -->
                 <div class="col-xs-12 cakePage">
@@ -61,7 +47,10 @@
                 </div>
                 <div class="col-xs-10 vidPage"></div>
                 <div class="col-xs-10 decoPage"></div>
-                <div class="col-xs-10 mapPage"></div>
+                <div class="col-xs-10 mapPage">
+                   <div class="mapLayout">
+                   <div id="map"></div>
+        </div></div>
                 <!-- <div class="col-xs-1"></div> -->
                 
                 
@@ -76,15 +65,20 @@
 
 
 
+    <!--- below test youtube -->
+
+<!--     <button id="getTabDom" class="btn">Get tab DOM</button> -->
+
+    <div class="container">
+            <footer class="footer pull-right">
+                <div>
+                    <a href="https://github.com/Allurien/c418_hackathon2">c418_hackathon2</a>
+                    <div> CheerupCupcake ! </div>
+                </div>
+            </footer>
+        </div>
 
 
-        <!--- below test youtube -->
-         
-          
-          
+</body>
 
-        
-       
-        <script src="youtube.js"></script>
-    </body>
 </html>

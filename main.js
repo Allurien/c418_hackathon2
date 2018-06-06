@@ -3,7 +3,7 @@ $(document).ready(allTheThings);
 
 function allTheThings(){
     attachClickHandlers();
-    choosyMoody();
+    changeButtonTextAndApplyClickHandler()
 };
 
 function attachClickHandlers(){
@@ -25,11 +25,12 @@ function choosyMoody(){
         mood = "sad";
         bakeOrBuy(mood);
     });
+
 };
 
 function bakeOrBuy(mood){
     clickReset();
-
+   
     if (mood === "happy"){
         $(".qText").text("We're so glad! How about a cupcake to celebrate?");
     } else if (mood === "sad"){
@@ -41,6 +42,10 @@ function bakeOrBuy(mood){
     });
     $(".ansText2").text("I'd rather go find one!").on("click", function(){
         findCupcakes(mood);
+        $(".selectBox1").remove();
+        $(".selectBox2").remove();
+        getMap();
+        createMapElements();
     });
     return mood;
     console.log("bakeOrBuy clicked!")
@@ -48,7 +53,6 @@ function bakeOrBuy(mood){
 
 function findCupcakes(mood){
     clickReset();
-
     $(".qText").text("Then let's find a bakery nearby!");
 
     console.log("finding cupcakes!", mood);
