@@ -25,7 +25,7 @@ function createMapElements() {
     $("#map").css("height", "50vh");
     $(restartButton).css("display", "block").css("margin", "auto");
     $(zipCodeLabel).append(zipCodeInput);
-    $(".mapLayout").prepend(zipCodeLabel, submitButton);
+    $(".selectQ").prepend(zipCodeLabel, submitButton);
     $(".mapLayout").append(restartButton);
     $("#submit").on("click", onlyNumbers);
 }

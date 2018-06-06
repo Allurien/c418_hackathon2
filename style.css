@@ -57,12 +57,12 @@ body{
     height: 30vw;
 }
 
-.tabContainer{
+/* .tabContainer{
     height: 10vh;
-}
+} */
 .tab {
     overflow: hidden;
-    border: 1px solid rgb(202, 80, 80);
+    /* border: 1px solid rgb(202, 80, 80); */
     background-color: #f1f1f1;
 }
 

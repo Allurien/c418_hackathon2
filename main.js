@@ -3,7 +3,8 @@ $(document).ready(allTheThings);
 
 function allTheThings(){
     attachClickHandlers();
-    changeButtonTextAndApplyClickHandler()
+    choosyMoody();
+    // changeButtonTextAndApplyClickHandler()
 };
 
 function attachClickHandlers(){
@@ -53,8 +54,11 @@ function bakeOrBuy(mood){
 
 function findCupcakes(mood){
     clickReset();
-    $(".qText").text("Then let's find a bakery nearby!");
-
+    $(".qText").text("");
+    $('.selectBox1, .selectBox2 ').css('display', 'none');
+    $('.cakePage').css('height', '40%');
+    $('.selectQ').css('height', '100%');
+    // callMapPage();
     console.log("finding cupcakes!", mood);
 };
 
@@ -91,7 +95,7 @@ function callCupcakePage(mood, flavor){
     clickReset();
 //--------------------------------Creating the page here---------------------------------------
     let adddiv1 = $("<div>").addClass("cakeHeader");
-    $(".row1").prepend(adddiv1);
+    $(".tab").prepend(adddiv1);
     $(".tab").css("display", "block");
     generateTabDom();
     $(".selectQ").addClass("cakeName").removeClass("selectQ").text('').appendTo("#recipeTab");
@@ -128,7 +132,7 @@ function callDecoPage(){
 };
 
 function callMapPage(){
-    $(".cakePage").css("display", "none");
+    $(".cakePage").css("display", "block");
     $(".vidPage").css("display", "none");
     $(".decoPage").css("display", "none");
     $(".mapPage").css("display", "block");
