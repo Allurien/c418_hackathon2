@@ -90,14 +90,15 @@ function callCupcakePage(mood, flavor){
     clickReset();
 //--------------------------------Creating the page here---------------------------------------
     let adddiv1 = $("<div>").addClass("cakeHeader");
-    $(".row1").prepend(adddiv1)
+    $(".row1").prepend(adddiv1);
     $(".tab").css("display", "block");
-    $(".selectQ").addClass("cakeName").removeClass("selectQ").text('');
-    $(".selectBox1").addClass("cakeImg").removeClass("selectBox1").text('');
-    $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('');
-    let adddiv2 = $("<div>").addClass("recipeBox");
-    $(".cakePage").append(adddiv2);
     generateTabDom();
+    $(".selectQ").addClass("cakeName").removeClass("selectQ").text('').appendTo("#recipeTab");
+    $(".selectBox1").addClass("cakeImg").removeClass("selectBox1").text('').appendTo("#recipeTab");
+    $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('').appendTo("#recipeTab");
+    let adddiv2 = $("<div>").addClass("recipeBox");
+    let addspacer = $("<div>").addClass("col-xs-1");
+    $("#recipeTab").append(adddiv2).addClass('cakePage');
     cupcakeChooser(mood, flavor);
 
     $(".restartButton").css("display", "block");

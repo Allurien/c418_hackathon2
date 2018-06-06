@@ -50,6 +50,7 @@ body{
 
 .cakePage{
     display: block;
+    margin: 1vmin;
 }
 .cakeHeader{
     background-color: darkslateblue;

@@ -18,7 +18,7 @@ function generateTabDom() {
         class: 'tab'
     });
 
-    var categoryArr = ['recipeTab', 'videoTab', 'decorateTab'];
+    var categoryArr = ['recipeTab', 'videoTab'];
     for (var i = 0; i < 3; i++) {
         var tabButton = $('<button>', {
             class: `tablinks  ${categoryArr[i]}Button`,
@@ -51,7 +51,8 @@ function generateTabDom() {
         $('.tabContainer').append(tab);
     } //end for
 
-    var recipeTab = $('<div>', {
+    var recipeTab = 
+    $('<div>', {
         id: 'recipeTab',
         class: 'tabcontent',
         'h3': 'Recipe'
@@ -76,15 +77,15 @@ function generateTabDom() {
     youtubeContainer.append(youtubeButton);
     videoTab.append(youtubeContainer);
 
-    var decorateTab = $('<div>', {
-        id: 'decorateTab',
-        class: 'tabcontent',
-        h3: 'Decorate'
-    });
+    // var decorateTab = $('<div>', {
+    //     id: 'decorateTab',
+    //     class: 'tabcontent',
+    //     h3: 'Decorate'
+    // });
 
     $('.tabContainer').append(recipeTab);
     $('.tabContainer').append(videoTab);
-    $('.tabContainer').append(decorateTab);
+    // $('.tabContainer').append(decorateTab);
 
 } // end generateTabDom()
 
