@@ -4,6 +4,7 @@ $(document).ready(allTheThings);
 function allTheThings(){
     attachClickHandlers();
     choosyMoody();
+
 };
 
 function attachClickHandlers(){
@@ -29,7 +30,7 @@ function choosyMoody(){
 
 function bakeOrBuy(mood){
     clickReset();
-
+   
     if (mood === "happy"){
         $(".selectQ").text("We're so glad! How about a cupcake to celebrate?");
     } else if (mood === "sad"){
@@ -128,6 +129,13 @@ function backToCupcakePage(){
     $(".vidPage").css("display", "none");
     $(".cakePage").css("display", "block");
 }
+
+// function callMapPage(){
+//     $(".cakePage").css("display", "none");
+//     $(".vidPage").css("display", "none");
+//     $(".decoPage").css("display", "none");
+//     $(".mapPage").css("display", "block");
+//  };
 
 function startOver(){
     location.reload();

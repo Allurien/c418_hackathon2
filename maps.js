@@ -21,14 +21,13 @@ function createMapElements() {
             id: "submit",
             text: "Submit"
       });
-      var mapArea = $("<div>", {
-            id: "map"
-      });
+    //   var mapArea = $("<div>", {
+    //         id: "map"
+    //   });
       $(zipCodeLabel).append(zipCodeInput);
-      $(".mapLayout").append(zipCodeLabel, submitButton, mapArea);
+    $(".mapLayout").prepend(zipCodeLabel, submitButton);
       $("#submit").on("click", onlyNumbers);
 }
-
 
 function onlyNumbers() {
       var convertZip = $("#zipcode").val();

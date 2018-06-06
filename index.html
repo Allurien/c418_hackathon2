@@ -8,11 +8,11 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="style.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXK1lum1zgLcoIodIKfbowX2Up4qLzwoU&libraries=places&callback=getMap" async defer></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXK1lum1zgLcoIodIKfbowX2Up4qLzwoU&libraries=places" async defer></script>
+            <script src="maps.js"></script>
             <script src="main.js"></script>
             <script src="youtube.js"></script>
-            <script src="maps.js"></script>
-
+        
     </head>
     <body>
         <div class="container">
@@ -54,6 +54,7 @@
                 </div>
                 <div class="col-xs-10 vidPage"></div>
                 <div class="col-xs-10 decoPage"></div>
+                <div class="col-xs-10 mapPage"></div>
                 <div class="col-xs-1"></div>
                 <div class="row row2">
                     <div class="col-xs-4"></div>
@@ -62,7 +63,9 @@
                   </div>
             </div>
             <div class="col-xs-1"></div>
-            <div class="mapLayout"></div>
+        </div>
+        <div class="mapLayout">
+            <div id="map"></div>
         </div>
     </div>
 
