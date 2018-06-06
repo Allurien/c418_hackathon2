@@ -14,6 +14,39 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+/* ---------------------------------------------------- */
+
+/* Map Layout */
+.mapLayout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+.zipLayout {
+  margin: auto;
+  text-align: center;
+}
+#zipcode {
+  border: 1px solid black;
+  width: 50vw;
+  height: 3vh;
+  margin: 3vw auto;
+  display: flex;
+  justify-content: center;    
+}
+#map {
+  /* height: 50vh; */
+  margin: 3vh;
+}
+#submit {
+  margin: auto;
+  width: 50vw;
+  height: 3vh;
+  border: 1px solid black;
+}
+
 /* ------------------------- pageTab below --------------------------- */
 
 .cakePage{

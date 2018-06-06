@@ -1,40 +1,37 @@
-$(document).ready(initializeApp);
-
 let map;
-let infowindow;
-let results; 
-function initializeApp(){
-    //   createMapElements();
-      $("#submit").on("click", onlyNumbers);
-}
-function createMapElements() {
-      var mapLayout = $("<div>", {
-            class: "mapLayout"
-      });
-      var zipCodeLabel = $("<label>", {
-            class: "zipLayout",
-            text: "Please enter a 5 digit zip code: "
-      });
-      var zipCodeInput = $("<input>", {
-            id: "zipcode",
-            type: "text",
-            maxLength: "5"
-      });
-      var submitButton = $("<button>", {
-            id: "submit",
-            text: "Submit"
-      });
-      var mapArea = $("<div>", {
-            id: "map"
-      });
-      $(zipCodeLabel).append(zipCodeInput);
-      $(mapLayout).append(zipCodeLabel, submitButton, mapArea);
-      $("body").append(mapLayout);
-}
+let mapWindow;
 
+function createMapElements() {
+    const zipCodeLabel = $("<label>", {
+        class: "zipLayout",
+        text: "Please enter a 5 digit zip code: "
+    });
+    const zipCodeInput = $("<input>", {
+        id: "zipcode",
+        type: "text",
+        maxLength: "5"
+    });
+    const submitButton = $("<button>", {
+        id: "submit",
+        text: "Submit"
+    });
+    const restartButton = $("<div>", {
+        class: "restartButton",
+        text: "Restart",
+        on: {
+            click: startOver
+        }
+    });
+    $("#map").css("height", "50vh");
+    $(restartButton).css("display", "block").css("margin", "auto");
+    $(zipCodeLabel).append(zipCodeInput);
+    $(".mapLayout").prepend(zipCodeLabel, submitButton);
+    $(".mapLayout").append(restartButton);
+    $("#submit").on("click", onlyNumbers);
+}
 
 function onlyNumbers() {
-      var convertZip = $("#zipcode").val();
+      const convertZip = $("#zipcode").val();
       if (isNaN(convertZip) || convertZip.length !==5) {
             alert("Please enter 5 numbers");
             return;
@@ -69,7 +66,7 @@ function getMap(coords) {
         zoom: 12
     });
     
-    infowindow = new google.maps.InfoWindow();
+    mapWindow = new google.maps.InfoWindow();
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
         location: currentLocation,
@@ -77,10 +74,10 @@ function getMap(coords) {
         type: ["bakery"],
         openNow: true,
         keyword: "bakery"
-    }, callback);
+    }, mapCallback);
 }
 
-function callback(mapResults, status) {
+function mapCallback(mapResults, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (let place = 0; place < mapResults.length; place++) {
             createMarker(mapResults[place]);
@@ -103,8 +100,8 @@ function createMarker(place) {
       position: place.geometry.location
     });
       google.maps.event.addListener(cupcakeMarker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
+      mapWindow.setContent(place.name);
+      mapWindow.open(map, this);
     });
 }
 
