@@ -4,8 +4,8 @@ function init() {
 
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
-    //$('.tabContainer').on('click','#getYoutube', getVideoData);
-    $('.tabContainer').on('click', '#videoTab', getVideoData);
+    $('.tabContainer').on('click','#getYoutube', getVideoData);
+    //$('.tabContainer').on('click', '#videoTab', getVideoData);
 
 }
 
@@ -21,7 +21,7 @@ function generateTabDom() {
     var categoryArr = ['recipeTab', 'videoTab', 'decorateTab'];
     for (var i = 0; i < 3; i++) {
         var tabButton = $('<button>', {
-            class: 'tablinks',
+            class: `tablinks  ${categoryArr[i]}Button`,
             text: categoryArr[i],
 
         });
