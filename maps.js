@@ -1,7 +1,3 @@
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXK1lum1zgLcoIodIKfbowX2Up4qLzwoU&libraries=places&callback=getMap" async defer></script>
-
 $(document).ready(initializeApp);
 
 let map;
