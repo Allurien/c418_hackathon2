@@ -2,8 +2,16 @@
 $(document).ready(allTheThings);
 
 function allTheThings(){
+    attachClickHandlers();
     choosyMoody();
 };
+
+function attachClickHandlers(){
+    $(".recipeTabButton").on("click", backToCupcakePage);
+    $(".vidTabButton").on("click", callVideoPage);
+    $(".decoTabButton").on("click", callDecoPage);
+    $(".restartButton").on("click", startOver);
+}
 
 function choosyMoody(){
     $(".selectQ").text("How are you feeling today?");
@@ -48,55 +56,79 @@ function findCupcakes(mood){
 
 function bakeCupcakes(mood){
     clickReset();
-
+    let flavor = null;
     $(".selectQ").text("How fun! Which flavor sounds tastiest?");
 
     if (mood === "happy"){
         $(".selectBox1").text("Sweet!").on("click", function(){
-            mood += "Sweet";
-            callCupcakePage(mood);
+            flavor = "sweet";
+            callCupcakePage(mood, flavor);
         });
         $(".selectBox2").text("Salty!").on("click", function(){
-            mood += "Salty";
-            callCupcakePage(mood);
+            flavor = "salty";
+            callCupcakePage(mood, flavor);
         });
     }
     if (mood === "sad"){
         $(".selectBox1").text("Sweet").on("click", function(){
-            mood += "Sweet";
-            callCupcakePage(mood);
+            flavor = "sweet";
+            callCupcakePage(mood, flavor);
         });
         $(".selectBox2").text("Salty").on("click", function(){
-            mood += "Salty"
-            callCupcakePage(mood);
+            flavor = "salty"
+            callCupcakePage(mood, flavor);
         });
     }
-
+    return flavor;
     console.log("baking cupcakes!", mood);
 };
 
-function callCupcakePage(mood){
+function callCupcakePage(mood, flavor){
     clickReset();
 //--------------------------------Creating the page here---------------------------------------
-    $(".selectQ").addClass("cakeHeader").removeClass("selectQ").text('');
+    let adddiv1 = $("<div>").addClass("cakeHeader");
+    $(".row1").prepend(adddiv1)
     $(".tab").css("display", "block");
-    $(".selectBox1").addClass("cakeName").removeClass("selectBox1").text('');
-    $(".selectBox2").addClass("cakeImg").removeClass("selectBox2").text('');
-    let adddiv1 = $("<div>").addClass("allergyBar");
+    $(".selectQ").addClass("cakeName").removeClass("selectQ").text('');
+    $(".selectBox1").addClass("cakeImg").removeClass("selectBox1").text('');
+    $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('');
     let adddiv2 = $("<div>").addClass("recipeBox");
-    $(".col-xs-10").append(adddiv1, adddiv2);
-    cupcakeChooser();
+    $(".cakePage").append(adddiv2);
 
-    console.log("recommending cupcakes for ", mood)
+    cupcakeChooser(mood, flavor);
+
+    $(".restartButton").css("display", "block");
 };
 
 //---------------------------------Randomizer based on mood here------------------------------------
 
-function cupcakeChooser(mood){
-
+function cupcakeChooser(mood, flavor){
+    console.log("Mood is: "+mood+" Flavor is: "+flavor);
 };
 
 //--------------------------------------------------------------------------------------------------
+
+function callVideoPage(){
+    $(".cakePage").css("display", "none");
+    $(".decoPage").css("display", "none");
+    $(".vidPage").css("display", "block");
+};
+
+function callDecoPage(){
+    $(".cakePage").css("display", "none");
+    $(".vidPage").css("display", "none");
+    $(".decoPage").css("display", "block");
+};
+
+function backToCupcakePage(){
+    $(".decoPage").css("display", "none");
+    $(".vidPage").css("display", "none");
+    $(".cakePage").css("display", "block");
+}
+
+function startOver(){
+    location.reload();
+}
 
 function clickReset(){
     $(".selectBox1, .selectBox2").off("click");
