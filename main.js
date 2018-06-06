@@ -97,7 +97,7 @@ function callCupcakePage(mood, flavor){
     $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('');
     let adddiv2 = $("<div>").addClass("recipeBox");
     $(".cakePage").append(adddiv2);
-
+    generateTabDom();
     cupcakeChooser(mood, flavor);
 
     $(".restartButton").css("display", "block");
