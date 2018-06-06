@@ -21,7 +21,7 @@ function generateTabDom() {
     var categoryArr = ['recipeTab', 'videoTab', 'decorateTab'];
     for (var i = 0; i < 3; i++) {
         var tabButton = $('<button>', {
-            class: 'tablinks',
+            class: `tablinks  ${categoryArr[i]}Button`,
             text: categoryArr[i],
 
         });
