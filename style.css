@@ -54,7 +54,7 @@ body{
 }
 .cakeHeader{
     background-color: darkslateblue;
-    height: 30vw;
+    height: 15vw;
 }
 
 /* .tabContainer{
@@ -91,7 +91,7 @@ body{
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
+    /* display: none; */
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
@@ -131,20 +131,26 @@ body{
 /* ---------------------------------------------------- */
 
 .cakeName{
-    background-color: red;
-    height: 20vw;
+    /* background-color: red; */
+    display: flex;
+    height: 25vw;
 }
 .cakeImg{
-    background-color: blue;
-    height: 50vw;
+    /* background-color: blue; */
+    text-align: center;
+    height: 40vw;
+}
+.cakeImg img{
+    max-width: 100%;
+    max-height: 100%;
 }
 .allergyBar{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     height: 20vw;
 }
 .recipeBox{
-    background-color: palevioletred;
-    height: 100vw;
+    /* background-color: palevioletred; */
+    /* height: 100vw; */
 }
 
 .row{
@@ -157,9 +163,13 @@ body{
     line-height: 10vw;
     text-align: center;
 }
-
+#recipeTab {
+    background-color: purple;
+    margin: 3vmin;
+}
 .vidPage{
     display: none;
+    /* height: 100%; */
 }
 
 .decoPage{
@@ -169,13 +179,6 @@ body{
 .mapPage{
     display: none;
 }
-
-
-
-
-
-
-
 
 /* model */
 #modelShadow {
@@ -201,3 +204,9 @@ body{
     background-repeat: no-repeat;
     transform: translate(-50%, -50%);
   }
+/* Recipe Section */
+.recipe {
+    display: flex;
+    text-align: center;
+}
+
