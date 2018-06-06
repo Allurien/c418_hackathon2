@@ -59,6 +59,8 @@ body{
 
 .tab {
     display: none;
+    height: 30vw;
+    color: black;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
