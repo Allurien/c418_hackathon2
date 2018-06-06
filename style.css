@@ -1,4 +1,7 @@
 
+body{
+    margin: 0;
+}
 .container{
     color: white;
 }
@@ -11,71 +14,18 @@
     align-items: center;
     justify-content: center;
 }
-.selectBox1{
-    background-color: red;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+/* ------------------------- pageTab below --------------------------- */
+
+.cakePage{
+    display: block;
 }
-.selectBox2{
-    background-color: blue;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+.cakeHeader{
+    background-color: darkslateblue;
+    height: 30vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* pageTab below */
-/* Style the tab */
 .tab {
+    display: none;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -110,8 +60,56 @@
     border: 1px solid #ccc;
     border-top: none;
 }
+/* ---------------------------------------------------- */
 
+.selectBox1{
+    background-color: red;
+    height: 55vw;
+    margin-top: 2vh;
+    line-height: 55vw;
+    text-align: center;
+}
+.selectBox2{
+    background-color: blue;
+    height: 55vw;
+    margin-top: 2vh;
+    line-height: 55vw;
+    text-align: center;
+}
+/* ---------------------------------------------------- */
 
+.cakeName{
+    background-color: red;
+    height: 20vw;
+}
+.cakeImg{
+    background-color: blue;
+    height: 50vw;
+}
+.allergyBar{
+    background-color: blueviolet;
+    height: 20vw;
+}
+.recipeBox{
+    background-color: palevioletred;
+    height: 100vw;
+}
+.row2{
+    margin: 0;
+}
+.restartButton{
+    display: none;
+    background-color: palegreen;
+    height: 10vw;
+    width: 35vw;
+    line-height: 10vw;
+    text-align: center;
+}
 
+.vidPage{
+    display: none;
+}
 
-
+.decoPage{
+    display: none;
+}
