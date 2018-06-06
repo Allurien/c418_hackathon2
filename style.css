@@ -57,15 +57,19 @@ body{
     height: 30vw;
 }
 
+.tabContainer{
+    height: 10vh;
+}
 .tab {
-    display: none;
+    
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(202, 80, 80);
     background-color: #f1f1f1;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
+    color: black;
     background-color: inherit;
     float: left;
     border: none;
