@@ -1,9 +1,37 @@
-
+const questionSequence = [
+    { 
+        question: 'How are you feeling today?',
+        type: 'mood',
+        options: [ 'Happy', 'Sad'],
+        answer: null
+    },
+    { 
+        question: 'What sounds tastiest',
+        options: [ 'Salty', 'Sweet'],
+        type: 'flavor',
+        answer: null
+    },    
+    { 
+        question: 'which hemsworth is your favorite hemsworthh',
+        options: [ 'The Thor One', 'The robot killer', 'The other one'],
+        type: 'hemsworth',
+        answer: null
+    },   
+    { 
+        question: 'what is your opinion of guren lagon',
+        options: [ 'it is awesome', 'it is great', ' I am a moron'],
+        type: 'believe in me that belives in you',
+        answer: null
+    },     
+];
+let currentChoice = 0;
 $(document).ready(allTheThings);
 
 function allTheThings(){
     attachClickHandlers();
-    changeButtonTextAndApplyClickHandler()
+    debugger;
+    prepOptionChoices();
+    //changeButtonTextAndApplyClickHandler()
 };
 
 function attachClickHandlers(){
@@ -17,6 +45,56 @@ function changeButtonTextAndApplyClickHandler(){
     $(".selectBox1").text("Happy").on("click", choosyMoody );
     $(".selectBox2").text("Sad").on("click", choosyMoody);
 }
+
+function prepOptionChoices(){
+    var currentOption = questionSequence[ currentChoice];
+    $(".selectQ").text( currentOption.question );
+    $('.selectBox').remove();
+    var buttons = makeOptionButtons( currentOption.options );
+    $('.cakePage').append(buttons);
+}
+
+function makeOptionButtons(options){
+    var optionDomElements = [];
+    /* <div class="selectBox1 select1">Choice #1</div> */
+    for(var option_i = 0; option_i< options.length; option_i++){
+        optionElement = $("<div>", {
+            'class': 'selectBox',
+            text: options[option_i],
+            on: {
+                click: choosyOptiony
+            }
+        })
+        optionDomElements.push(optionElement)
+    }
+    return optionDomElements;
+}
+function showMapAndChooseProcurementType( answers ){
+    debugger;
+    getMap();
+    console.log(answers);
+}
+function choosyOptiony(){
+    const optionText = $(this).text().toLowerCase();
+    const currentOption = questionSequence[ currentChoice];
+    currentOption.answer = optionText;
+    currentChoice++;
+    if(currentChoice >= questionSequence.length){
+        let answers = processAndGetAnswers();
+        showMapAndChooseProcurementType(answers)
+    } else {
+        prepOptionChoices();
+    }
+}
+function processAndGetAnswers(){
+    var answers = {}
+    for(let questionIndex = 0; questionIndex< questionSequence.length; questionIndex++){
+        let currentQuestion = questionSequence[questionIndex];
+        answers[ currentQuestion.type ] = currentQuestion.answer;
+    }
+    return answers;
+}
+
 function choosyMoody(){
     const mood = $(this).text().toLowerCase();
     getMap();

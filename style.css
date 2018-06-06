@@ -93,21 +93,31 @@ body{
     border-top: none;
 }
 /* ---------------------------------------------------- */
-
-.selectBox1{
+.selectBox{
+    height: 55vw;
+    margin-top: 2vh;
+    line-height: 55vw;
+    text-align: center;    
+}
+.selectBox:nth-of-type(2){
     background-color: red;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
 }
-.selectBox2{
+.selectBox:nth-of-type(3){
     background-color: blue;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
 }
+.selectBox:nth-of-type(4){
+    background-color: lime;
+}
+.selectBox:nth-of-type(5){
+    background-color: purple;
+}
+.selectBox:nth-of-type(6){
+    background-color: pink;
+}
+.selectBox:nth-of-type(7){
+    background-color: lightgoldenrodyellow;
+}
+
 /* ---------------------------------------------------- */
 
 .cakeName{
