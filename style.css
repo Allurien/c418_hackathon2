@@ -1,23 +1,24 @@
 
+@font-face {
+    font-family: cuteFont;
+    src: url(fonts/cuteFont.ttf);
+}
 body{
-    margin: 0;
+    font-family: cuteFont, sans-serif;
+    height: 100vh;
+    width: 100vw;
 }
-.container{
-    color: white;
+.backgroundImg{
+    background-image: url("images/circles.jpg");
+    background-position: top;
+    background-size: contain;
 }
-.selectQ{
-    background-color: darkslateblue;
-    height: 40vw;
-    margin-top: 5vh;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 /* ------------------------- pageTab below --------------------------- */
 
 .cakePage{
     display: block;
+    height: 100%;
 }
 .cakeHeader{
     background-color: darkslateblue;
@@ -61,21 +62,37 @@ body{
     border-top: none;
 }
 /* ---------------------------------------------------- */
+.selectQ, .selectBox1, .selectBox2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: cadetblue;
+    font-size: 6vmin;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-.selectBox1{
-    background-color: red;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+.selectQ{
+    background-image: url(images/6.png);
+    background-size: cover;
+    height: 40%;
 }
+
+.selectBox1, .selectBox2{
+    background-image: url(images/7.png);
+    background-size: 80%;
+    height: 25%;
+}
+
 .selectBox2{
-    background-color: blue;
-    height: 55vw;
-    margin-top: 2vh;
-    line-height: 55vw;
-    text-align: center;
+    margin-top: 5%;
 }
+.qText{
+    width: 80%;
+}
+
 /* ---------------------------------------------------- */
 
 .cakeName{
@@ -94,11 +111,11 @@ body{
     background-color: palevioletred;
     height: 100vw;
 }
-.row2{
-    margin: 0;
+
+.row{
+    display: none;
 }
 .restartButton{
-    display: none;
     background-color: palegreen;
     height: 10vw;
     width: 35vw;
@@ -111,5 +128,9 @@ body{
 }
 
 .decoPage{
+    display: none;
+}
+
+.mapPage{
     display: none;
 }
