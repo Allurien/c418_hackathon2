@@ -73,53 +73,91 @@ let getRecipesById = (recipeID) => {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/494313/information`,
+        "url": `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${recipeID}/information`,
         "method": "GET",
         "headers": {
           "X-Mashape-Key": "G0IPHpFlIZmsh6Dz5xUk6tR1dZ2Op1JozqAjsnaGyvKIrjwvgC",
           "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com",
           "Cache-Control": "no-cache",
-        //   "Postman-Token": "d7b37c77-38ec-4045-8b49-672b86cd1442"
         },
-        "success": (results) =>{
+        "success": (results) => {
+            // Process AJAX call and pass relevant properties into a saved object for use later
             let displayIngredients = [];
+            let markerList = [];
             getIngredients = () => {
                 let ingredientList = results.extendedIngredients;
                 ingredientList.forEach((recipe) => {
                     debugger;
                     let ingredientData = recipe.original;
                     displayIngredients.push(ingredientData);
-                })
+                });
                 console.log(displayIngredients); 
-            }
+            };
             let recipeData = {
                 "name": results.title,
                 "image": results.image,
                 "source": results.sourceUrl,
                 "ingredients": displayIngredients,
-                "markers": {
-                    "vegetarian": results.vegetarian,
-                    "vegan": results.vegan,
-                    "glutenFree": results.glutenFree,
-                    "dairyFree": results.dairyFree,
-                    "smartPoints": results.weightWatcherSmartPoints,
-                },
+                "markers": [
+                    {"vegetarian": results.vegetarian},
+                    {"vegan": results.vegan},
+                    {"glutenFree": results.glutenFree},
+                    {"dairyFree": results.dairyFree},
+                ],
+                "smartPoints": results.weightWatcherSmartPoints,
                 "instructions": results.instructions,
                 "winePairing": results.winePairing,
                 "readyInMinutes": results.readyInMinutes,
                 "servings": results.servings,
             }
             getIngredients();
-            // recipeData.ingredients();
-            console.log(recipeData);
+            processMarkers = () => {
+                let markersToProcess = recipeData.markers;
+                markersToProcess.forEach((marker) => {
+                    for (let key in marker) {
+                        let markerToEvaluate = (marker[key]);
+                        if (markerToEvaluate){
+                            markerList.push(marker);
+                        }
+                    }
+                });
+            };
+            processMarkers();
+            // Passes recipeData into the appropriate DOM elements
+            addRecipeToDOM = () => {
+                $('.cakeName').append($("<h2>").text(recipeData.name));
+                $('.cakeImg').append(`<img src= "${recipeData.image}" alt= ${recipeData.name}/>`);
+                addMarkers = () => {
+                    let markersToAdd = markerList;
+                    markersToAdd.forEach((marker) => {
+                        for(let key in marker)
+                            switch (key){
+                                case 'vegetarian':
+                                    $('.allergyBar').append(`<img src= "images/cupcakeicon2.png" alt= ${marker.key}/>)`);
+                                    break;
+                                case 'vegan':
+                                    $('.allergyBar').append(`<img src= "images/cupcakeicon2.png" alt= ${marker.key}/>)`);
+                                    break;
+                                case 'glutenFree':
+                                    $('.allergyBar').append(`<img src= "images/cupcakeicon2.png" alt= ${marker.key}/>)`);
+                                    break;
+                                case 'dairyFree':
+                                    $('.allergyBar').append(`<img src= "images/cupcakeicon2.png" alt= ${marker.key}/>)`);
+                                    break;
+                            }
+                    });
+                };
+                addMarkers();
+                $('.recipeBox').append($("<h2>").text('Ingredients'));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients));
+                $('.recipeBox').append($("<h2>").text('Instructions'));
+                $('.recipeBox').append($("<p>").text(recipeData.instructions));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients));
+            };
 
-    
-                 
-
-            // let addRecipeToDOM = $('<div>').addClass('recipe').append($('<h2>').text('blah'));
-            // console.log(recipesToDisplay);
+            addRecipeToDOM();
         },
-        // failure: 'Bad things happened. You should check on that.',
+
     };    
     $.ajax(settings);
 }
