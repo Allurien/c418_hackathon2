@@ -19,7 +19,6 @@ function changeButtonTextAndApplyClickHandler(){
 }
 function choosyMoody(){
     const mood = $(this).text().toLowerCase();
-    getMap();
     bakeOrBuy(mood);
 };
 
@@ -39,6 +38,7 @@ function bakeOrBuy(mood){
         findCupcakes(mood);
         $(".selectBox1").remove();
         $(".selectBox2").remove();
+        getMap();
         createMapElements();
     });
     return mood;

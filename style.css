@@ -26,6 +26,7 @@ body{
 }
 .zipLayout {
   margin: auto;
+  text-align: center;
 }
 #zipcode {
   border: 1px solid black;
