@@ -82,25 +82,37 @@ let getRecipesById = (recipeID) => {
         //   "Postman-Token": "d7b37c77-38ec-4045-8b49-672b86cd1442"
         },
         "success": (results) =>{
-            console.log(results);
-            let recipeData = {
-                name: results.title,
-                image: results.image,
-                source: results.sourceUrl,
-                ingredients: () => {
-                    let displayIngredients = [];
-                    console.log(results.extendedIngredients);
-                    let ingredientList = results.extendedIngredients;
-                    ingredientList.forEach((recipe) => {
-                        debugger;
-                        let ingredientData = recipe.original;
-                        displayIngredients.push(ingredientData);
-                    })
-                    console.log(displayIngredients); 
-                }
+            let displayIngredients = [];
+            getIngredients = () => {
+                let ingredientList = results.extendedIngredients;
+                ingredientList.forEach((recipe) => {
+                    debugger;
+                    let ingredientData = recipe.original;
+                    displayIngredients.push(ingredientData);
+                })
+                console.log(displayIngredients); 
             }
-            recipeData.ingredients();
-            console.log('recipe data'+recipeData);
+            let recipeData = {
+                "name": results.title,
+                "image": results.image,
+                "source": results.sourceUrl,
+                "ingredients": displayIngredients,
+                "markers": {
+                    "vegetarian": results.vegetarian,
+                    "vegan": results.vegan,
+                    "glutenFree": results.glutenFree,
+                    "dairyFree": results.dairyFree,
+                    "smartPoints": results.weightWatcherSmartPoints,
+                },
+                "instructions": results.instructions,
+                "winePairing": results.winePairing,
+                "readyInMinutes": results.readyInMinutes,
+                "servings": results.servings,
+            }
+            getIngredients();
+            // recipeData.ingredients();
+            console.log(recipeData);
+
     
                  
 
