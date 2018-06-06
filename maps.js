@@ -1,16 +1,13 @@
-$(document).ready(initializeApp);
+// $(document).ready(initializeApp);
 
 let map;
 let infowindow;
 let results; 
-function initializeApp(){
-    //   createMapElements();
-      $("#submit").on("click", onlyNumbers);
-}
+// function initializeApp(){
+//       createMapElements();
+// }
+
 function createMapElements() {
-      var mapLayout = $("<div>", {
-            class: "mapLayout"
-      });
       var zipCodeLabel = $("<label>", {
             class: "zipLayout",
             text: "Please enter a 5 digit zip code: "
@@ -28,8 +25,8 @@ function createMapElements() {
             id: "map"
       });
       $(zipCodeLabel).append(zipCodeInput);
-      $(mapLayout).append(zipCodeLabel, submitButton, mapArea);
-      $("body").append(mapLayout);
+      $(".mapLayout").append(zipCodeLabel, submitButton, mapArea);
+      $("#submit").on("click", onlyNumbers);
 }
 
 

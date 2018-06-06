@@ -41,6 +41,9 @@ function bakeOrBuy(mood){
     });
     $(".selectBox2").text("I'd rather go find one!").on("click", function(){
         findCupcakes(mood);
+        $(".selectBox1").remove();
+        $(".selectBox2").remove();
+        createMapElements();
     });
     return mood;
     console.log("bakeOrBuy clicked!")
@@ -50,7 +53,7 @@ function findCupcakes(mood){
     clickReset();
 
     $(".selectQ").text("Then let's find a bakery nearby!");
-
+    
     console.log("finding cupcakes!", mood);
 };
 
