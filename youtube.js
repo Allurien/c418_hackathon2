@@ -1,13 +1,95 @@
 $(document).ready(init);
 
 function init() {
-    //alert('youtube hi');
-    $('#getYoutube').on('click', getVideoData);
+
+    $('#getTabDom').on('click', generateTabDom);
+    //event delegation
+    //$('.tabContainer').on('click','#getYoutube', getVideoData);
+    $('.tabContainer').on('click', '#videoTab', getVideoData);
 
 }
 
+function generateTabDom() {
+
+    //alert('hi');
+    //var tabContainer = $('.tabContainer');
+
+    var tab = $('<div>', {
+        class: 'tab'
+    });
+
+    var categoryArr = ['recipeTab', 'videoTab', 'decorateTab'];
+    for (var i = 0; i < 3; i++) {
+        var tabButton = $('<button>', {
+            class: 'tablinks',
+            text: categoryArr[i],
+
+        });
+        tab.append(tabButton);
+        //use clousur
+        function showCategory(evt, category) {
+            console.log('inside showCategory func');
+            tabButton.on('click', function (e) {
+                console.log('click it ', category);
+                e.preventDefault();
+
+                //when button active, content display block
+                let tabcontent, tablinks;
+                tabcontent = $(".tabcontent");
+                tabcontent.hide();
+
+                tablinks = $(".tablinks");
+                $(".tablinks.active").removeClass('active')
+
+                $("#category").hide();
+                $(evt.currentTarget).addClass('active');
+                $("#" + category).show();
+            });
+        }
+
+        showCategory(event, categoryArr[i]);
+        $('.tabContainer').append(tab);
+    } //end for
+
+    var recipeTab = $('<div>', {
+        id: 'recipeTab',
+        class: 'tabcontent',
+        'h3': 'Recipe'
+    });
+
+    var videoTab = $('<div>', {
+        id: 'videoTab',
+        class: 'tabcontent',
+        'h3': 'Video'
+    });
+
+    var youtubeContainer = $('<div>', {
+        class: 'youtubeContainer'
+    });
+
+    var youtubeButton = $('<button>', {
+        id: 'getYoutube',
+        class: 'btn btn-outline-primary',
+        text: 'Get youtube'
+    });
+
+    youtubeContainer.append(youtubeButton);
+    videoTab.append(youtubeContainer);
+
+    var decorateTab = $('<div>', {
+        id: 'decorateTab',
+        class: 'tabcontent',
+        h3: 'Decorate'
+    });
+
+    $('.tabContainer').append(recipeTab);
+    $('.tabContainer').append(videoTab);
+    $('.tabContainer').append(decorateTab);
+
+} // end generateTabDom()
 
 function getVideoData() {
+    alert('hi');
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = 'salt chocolate  cupcake';
     //let q = $('input').val()
@@ -26,7 +108,7 @@ function getVideoData() {
             if (response.success) {
                 console.log('server success');
                 console.log('response is ', response.video);
-                generateDOM(response.video);
+                generateVideoDOM(response.video);
             } else {
                 console.log('got wrong response');
             }
@@ -37,7 +119,8 @@ function getVideoData() {
     });
 } //end getData()
 
-function generateDOM(videoList) {
+function generateVideoDOM(videoList) {
+
     console.log('inside generateDom video ', videoList);
     //{title: "Cupcake Decorating Ideas | FUN and Easy Cupcake Recipes by So Yummy", 
     //    id: "YsxtAMlWfj8"}
@@ -46,8 +129,8 @@ function generateDOM(videoList) {
         console.log('video id ', videoID);
         //var url = `https://www.youtube.com/watch?v=${videoID}`;
         //console.log('url for each video ', url);
-        
-        let showURL = `https://www.youtube.com/embed/${videoID}?rel=0`; 
+
+        let showURL = `https://www.youtube.com/embed/${videoID}?rel=0`;
         let iframe = $('<iframe>', {
             src: showURL,
             'allowfullscreen': true
@@ -57,17 +140,3 @@ function generateDOM(videoList) {
     } //end for loop
 
 } //end generateDOM()
-
-function showCategory(evt, category) {
-    let i, tabcontent, tablinks;
-    tabcontent = $(".tabcontent");
-    tabcontent.hide();
-    
-    tablinks = $(".tablinks");
-    $(".tablinks.active").removeClass('active')
-    
-    $("#category").hide();
-    $(evt.currentTarget).addClass('active');
-    
-    $("#"+category).show();
-}
