@@ -4,8 +4,8 @@ function init() {
 
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
-    //$('.tabContainer').on('click','#getYoutube', getVideoData);
-    $('.tabContainer').on('click', '#videoTab', getVideoData);
+    $('.tabContainer').on('click','#getYoutube', getVideoData);
+    //$('.tabContainer').on('click', '#videoTab', getVideoData);
 
 }
 
