@@ -3,7 +3,7 @@ function generateTabDom() {
         class: 'tab'
     });
 
-    var categoryArr = ['recipeTab', 'videoTab'];
+var categoryArr = ['recipeTab', 'videoTab'];
     for (var i = 0; i < 2; i++) {
         var tabButton = $('<button>', {
             class: `tablinks  ${categoryArr[i]}Button`,
@@ -36,8 +36,7 @@ function generateTabDom() {
         $('.tabContainer').append(tab);
     } //end for
 
-    var recipeTab = 
-    $('<div>', {
+    var recipeTab = $('<div>', {
         id: 'recipeTab',
         class: 'tabcontent',
         'h3': 'Recipe'
@@ -45,31 +44,30 @@ function generateTabDom() {
 
     var videoTab = $('<div>', {
         id: 'videoTab',
-        class: 'tabcontent getyoutubeV',
+        class: 'tabcontent',
         'h3': 'Video'
     });
 
     var youtubeContainer = $('<div>', {
         class: 'youtubeContainer'
     });
-
-    var youtubeButton = $('<button>', {
-        id: 'getYoutube',
-        class: 'btn btn-outline-primary',
-        text: 'Get youtube'
-    });
-    var i = $('<i>', {
-        class: "fa fa-youtube"
-    });
+    // var youtubeButton = $('<button>', {
+    //     id: 'getYoutube',
+    //     class: 'btn btn-outline-primary',
+    //     text: 'Get youtube'
+    // });
+    // var i = $('<i>', {
+    //     class: "fa fa-youtube"
+    // });
     // youtubeButton.append(i);
-    // youtubeContainer.append(youtubeButton);
+    //youtubeContainer.append(youtubeButton);
     videoTab.append(youtubeContainer);
 
-    // var decorateTab = $('<div>', {
-    //     id: 'decorateTab',
-    //     class: 'tabcontent',
-    //     h3: 'Decorate'
-    // });
+    var decorateTab = $('<div>', {
+        id: 'decorateTab',
+        class: 'tabcontent',
+        h3: 'Decorate'
+    });
 
     $('#cakePage').append(recipeTab);
     $('.vidPage').append(videoTab);
@@ -128,3 +126,14 @@ function generateVideoDOM(videoList) {
     } //end for loop
 
 } //end generateDOM()
+
+
+function showModal() {
+
+    alert('model');
+    $('#modelShadow').css('display', 'block');
+    setTimeout(function () {
+    
+        $('#modelShadow').css('display', 'none');
+    }, 5000);
+}// end showWinModal()
