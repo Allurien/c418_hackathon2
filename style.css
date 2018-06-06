@@ -22,7 +22,7 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 2vh;
 }
 .zipLayout {
   margin: auto;
@@ -37,7 +37,7 @@ body{
   justify-content: center;    
 }
 #map {
-  height: 50vh;
+  /* height: 50vh; */
   margin: 3vh;
 }
 #submit {

@@ -125,13 +125,6 @@ function backToCupcakePage(){
     $(".cakePage").css("display", "block");
 }
 
-// function callMapPage(){
-//     $(".cakePage").css("display", "none");
-//     $(".vidPage").css("display", "none");
-//     $(".decoPage").css("display", "none");
-//     $(".mapPage").css("display", "block");
-//  };
-
 function startOver(){
     location.reload();
 }
