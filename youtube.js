@@ -4,7 +4,7 @@ function init() {
 
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
-    $('.tabContainer').on('click','#getYoutube', getVideoData);
+    $('.tabContainer').on('click','.videoTabButton', getVideoData);
     //$('.tabContainer').on('click', '#videoTab', getVideoData);
 
 }
@@ -59,7 +59,7 @@ function generateTabDom() {
 
     var videoTab = $('<div>', {
         id: 'videoTab',
-        class: 'tabcontent',
+        class: 'tabcontent getyoutubeV',
         'h3': 'Video'
     });
 
@@ -72,7 +72,10 @@ function generateTabDom() {
         class: 'btn btn-outline-primary',
         text: 'Get youtube'
     });
-
+    var i = $('<i>', {
+        class: "fa fa-youtube"
+    });
+    youtubeButton.append(i);
     youtubeContainer.append(youtubeButton);
     videoTab.append(youtubeContainer);
 
