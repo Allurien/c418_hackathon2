@@ -19,10 +19,10 @@ function generateTabDom() {
     });
 
     var categoryArr = ['recipeTab', 'videoTab'];
-    for (var i = 0; i < 3; i++) {
-        var tabButton = $('<button>', {
+    for (var i = 0; i < 2; i++) {
+        var tabButton = $('<div>', {
             class: `tablinks  ${categoryArr[i]}Button`,
-            text: categoryArr[i],
+            // text: categoryArr[i],
 
         });
         tab.append(tabButton);
