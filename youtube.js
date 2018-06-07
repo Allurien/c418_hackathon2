@@ -82,12 +82,7 @@ var categoryArr = ['recipeTab', 'videoTab'];
 
 } // end generateTabDom()
 
-<<<<<<< HEAD
-function getVideoData() {
-   // alert('hi');
-=======
 function getVideoData(searchTerm) {
->>>>>>> 30125db0271456a72160ed9c568bed39c4ac79c3
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = searchTerm;
     //let q = $('input').val()
