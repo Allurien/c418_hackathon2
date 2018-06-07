@@ -136,7 +136,6 @@ function generateVideoDOM(videoList) {
 
 
 function showModal() {
-
     $('#modelShadow').css('display', 'block');
    
 }// end showWinModal()

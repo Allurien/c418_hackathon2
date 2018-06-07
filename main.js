@@ -3,7 +3,6 @@ $(document).ready(allTheThings);
 
 function allTheThings(){
     showModal();
-    attachClickHandlers();
     choosyMoody();
     // changeButtonTextAndApplyClickHandler()
     $('#getTabDom').on('click', generateTabDom);
@@ -111,6 +110,7 @@ function callCupcakePage(mood, flavor){
     $(".tab").prepend(adddiv1);
     $(".tab").css("display", "block");
     generateTabDom();
+    attachClickHandlers();
     $(".tabContainer").css("display", "block");
     $(".selectQ").addClass("cakeName").removeClass("selectQ").text('').appendTo("#recipeTab");
     $(".selectBox1").addClass("cakeImg").removeClass("selectBox1").text('').appendTo("#recipeTab");
