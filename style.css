@@ -1,0 +1,244 @@
+
+@font-face {
+    font-family: cuteFont;
+    src: url(fonts/cuteFont.ttf);
+}
+body{
+    font-family: cuteFont, sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+.backgroundImg{
+    background-image: url("images/circles.jpg");
+    background-position: top;
+    background-size: contain;
+}
+
+/* ---------------------------------------------------- */
+
+/* Map Layout */
+.mapLayout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+.zipLayout {
+  margin: auto;
+  text-align: center;
+}
+#zipcode {
+  border: 1px solid black;
+  width: 50vw;
+  height: 3vh;
+  margin: 3vw auto;
+  display: flex;
+  justify-content: center;    
+}
+#map {
+  /* height: 50vh; */
+  margin: 3vh;
+}
+#submit {
+  margin: auto;
+  width: 50vw;
+  height: 3vh;
+  border: 1px solid black;
+}
+
+/* ------------------------- pageTab below --------------------------- */
+
+.cakePage{
+    display: block;
+    height: 100%;
+}
+.cakeHeader{
+    background-image: url("images/headerBanner.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 30vw;
+}
+
+/* .tabContainer{
+    height: 10vh;
+} */
+.tabContainer {
+    background-image: url("images/topbar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 19vmin;
+    width: 96vmin;
+    display: none;
+}
+.tab {
+    margin-left: 2%;
+    
+    /* border: 1px solid rgb(202, 80, 80); */
+    /* background-color: #f1f1f1; */
+}
+
+/* Style the buttons inside the tab */
+.recipeTabButton{
+    background-image: url("images/recipeCupcake.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 19vmin;
+    width: 34vmin;
+    display: inline-block;
+    margin: 2% 0 0 1%;
+}
+.videoTabButton {
+    background-image: url("images/videosCupcake.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 19vmin;
+    width: 34vmin;
+    display: inline-block;
+    margin: 2% 0 0 0;
+}
+.tab button {
+
+    color: black;
+    /* background-color: inherit; */
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+/* .tab button:hover {
+    background-color: #ddd;
+} */
+
+/* Create an active/current tablink class */
+/* .tab button.active {
+    background-color: #ccc;
+} */
+
+/* Style the tab content */
+.tabcontent {
+    /* display: none; */
+    padding: 6px 12px;
+    /* border: 1px solid #ccc; */
+    border-top: none;
+}
+/* ---------------------------------------------------- */
+.selectQ, .selectBox1, .selectBox2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: cadetblue;
+    font-size: 6vmin;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.selectQ{
+    background-image: url(images/6.png);
+    background-size: cover;
+    height: 40%;
+}
+
+.selectBox1, .selectBox2{
+    background-image: url(images/7.png);
+    background-size: 80%;
+    height: 25%;
+}
+
+.selectBox2{
+    margin-top: 5%;
+}
+.qText{
+    width: 80%;
+}
+
+/* ---------------------------------------------------- */
+
+.cakeName{
+    /* background-color: red; */
+    display: flex;
+    height: 25vw;
+}
+.cakeImg{
+    /* background-color: blue; */
+    text-align: center;
+    height: 40vw;
+}
+.cakeImg img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.allergyBar{
+    /* background-color: blueviolet; */
+    height: 20vw;
+}
+.recipeBox{
+    /* background-color: palevioletred; */
+    /* height: 100vw; */
+}
+
+.row{
+    display: none;
+}
+.restartButton{
+    background-color: palegreen;
+    height: 10vw;
+    width: 35vw;
+    line-height: 10vw;
+    text-align: center;
+}
+#recipeTab {
+    background-color: purple;
+    margin: 3vmin;
+}
+.vidPage{
+    display: none;
+    /* height: 100%; */
+}
+
+.decoPage{
+    display: none;
+}
+
+.mapPage{
+    display: none;
+}
+
+/* model */
+#modelShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+    
+  }
+
+  #modelBody {
+    position: fixed;
+    left: 40%;
+    top: 50%;
+   
+    min-width: 80%;
+    min-height: 80%;
+    background-image: url(images/model.gif);
+    background-size:cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+  }
+/* Recipe Section */
+.recipe {
+    display: flex;
+    text-align: center;
+}
+

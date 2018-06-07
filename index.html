@@ -5,11 +5,84 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>CheerupCupcake!</title>
+            <link rel="stylesheet" href="asset/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="style.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="main.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXK1lum1zgLcoIodIKfbowX2Up4qLzwoU&libraries=places&callback=getMap" async defer></script>
+            <script src="recipe.js"></script>
+            <script src="youtube.js"></script>
+            <script src="maps.js"></script>
+            <script src="main.js"></script>   
     </head>
-    <body>
+    <body class="backgroundImg container">
+        <!-- <div class="container"> -->
+            <!-- <div class="row row1"> -->
+                <div class="tab">
+<!--                     <button class="tablinks recipeTabButton" onclick="showCategory(event, 'recipeTab')">recipe</button>
+                    <button class="tablinks videoTabButton" onclick="showCategory(event, 'videoTab')">video</button>      
+                    <button class="tablinks decorateTabButton" onclick="showCategory(event, 'decorateTab')">Decorate</button> -->
+                </div>
+                <div class="tabContainer"></div>
 
-    </body>
+
+                <!-- <div class="col-xs-1"></div> -->
+                <div class="col-xs-12 cakePage" id= 'cakePage'>
+                    <div class="selectQ">
+                        <div class= 'qText'>
+                            Question
+                        </div>
+                    </div>
+                    <div class="selectBox1">
+                        <div class=ansText1>
+                            Choice #1
+                        </div>
+                    </div>
+                    <div class="selectBox2">
+                        <div class=ansText2>
+                            Choice #2
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 vidPage"></div>
+                <!-- <div class="col-xs-12 decoPage"></div> -->
+                <!-- <div class="col-xs-10 mapPage">
+                    
+                </div> -->
+                <div class="col-xs-12 mapLayout">
+                        <div id="map"></div>
+                    </div>
+              
+                <!-- <div class="col-xs-1"></div> -->
+                
+                
+            </div>
+            <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4 restartButton">Restart</div>
+                    <div class="col-xs-4"></div>
+            </div>
+
+
+
+
+
+    <!--- below test youtube -->
+
+<!--     <button id="getTabDom" class="btn">Get tab DOM</button> -->
+
+    
+
+
+
+
+
+
+<div id='modelShadow'>
+        <div id='modelBody'> </div>
+    </div>
+
+
+</body>
+
 </html>
