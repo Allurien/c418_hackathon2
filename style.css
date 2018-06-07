@@ -203,8 +203,17 @@ body{
     text-align: center;
 }
 #recipeTab {
-    background-color: purple;
+    border: rgb(243, 225, 243) 3px solid;
+    background-color: rgba(223, 190, 223, 0.7);
+    color: rgb(102, 51, 0);
     margin: 3vmin;
+}
+#recipeTab h2 {
+    font-weight: bold;
+}
+#recipeTab p {
+    font-family: sans-serif; 
+    background-color: rgba(243, 225, 243, 0.7);
 }
 .vidPage{
     display: none;
