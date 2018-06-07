@@ -6,7 +6,7 @@ function init() {
     //event delegation
    // $('.tabContainer').on('click','#getYoutube', getVideoData);
     $('.tabContainer').on('click','.videoTabButton', getVideoData);
-   
+   $(".startApp").on("click", hideModal);
 }
 
 function generateTabDom() {
@@ -92,7 +92,7 @@ function generateTabDom() {
 } // end generateTabDom()
 
 function getVideoData() {
-    alert('hi');
+   // alert('hi');
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = 'salt chocolate  cupcake';
     //let q = $('input').val()
@@ -147,10 +147,10 @@ function generateVideoDOM(videoList) {
 
 function showModal() {
 
-    alert('model');
     $('#modelShadow').css('display', 'block');
-    setTimeout(function () {
-    
-        $('#modelShadow').css('display', 'none');
-    }, 5000);
+   
 }// end showWinModal()
+
+function hideModal() {
+    $('#modelShadow').css('display', 'none');
+}
