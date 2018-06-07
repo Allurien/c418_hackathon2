@@ -129,8 +129,6 @@ function generateVideoDOM(videoList) {
 
 
 function showModal() {
-
-    alert('model');
     $('#modelShadow').css('display', 'block');
     setTimeout(function () {
     
