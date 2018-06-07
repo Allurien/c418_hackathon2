@@ -4,6 +4,7 @@ $(document).ready(allTheThings);
 function allTheThings(){
     showModal();
     choosyMoody();
+    $(".startApp").on("click", hideModal);
     // changeButtonTextAndApplyClickHandler()
     $('#getTabDom').on('click', generateTabDom);
     //event delegation

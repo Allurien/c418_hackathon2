@@ -1,10 +1,3 @@
-
-
-  
-   $(".startApp").on("click", hideModal);
-
-
-
 function generateTabDom() {
     var tab = $('<div>', {
         class: 'tab'
