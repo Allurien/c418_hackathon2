@@ -1,3 +1,10 @@
+
+
+  
+   $(".startApp").on("click", hideModal);
+
+
+
 function generateTabDom() {
     var tab = $('<div>', {
         class: 'tab'
@@ -130,8 +137,9 @@ function generateVideoDOM(videoList) {
 
 function showModal() {
     $('#modelShadow').css('display', 'block');
-    setTimeout(function () {
-    
-        $('#modelShadow').css('display', 'none');
-    }, 5000);
+   
 }// end showWinModal()
+
+function hideModal() {
+    $('#modelShadow').css('display', 'none');
+}

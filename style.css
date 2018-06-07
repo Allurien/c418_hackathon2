@@ -235,7 +235,7 @@ body{
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0, .8);
     display: none;
     
   }
@@ -247,10 +247,28 @@ body{
    
     min-width: 80%;
     min-height: 80%;
-    background-image: url(images/model.gif);
+    
+    /* background-image: url(images/banner.png); */
     background-size:cover;
     background-repeat: no-repeat;
     transform: translate(-50%, -50%);
+  }
+
+  img {
+      width: 80%;
+      background-size:cover;
+      border-radius: 15px;
+      margin: 25% 20%;
+      position: absolute;
+
+  }
+
+  .startApp {
+      color: lavender;
+      width: 45%;
+      font-size: 1.5em;
+      margin: 55% 38%;
+      position: absolute;
   }
 /* Recipe Section */
 .recipe {
