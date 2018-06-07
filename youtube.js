@@ -1,28 +1,13 @@
-$(document).ready(init);
-
-function init() {
-
-    $('#getTabDom').on('click', generateTabDom);
-    //event delegation
-    $('.tabContainer').on('click','.videoTabButton', getVideoData);
-    //$('.tabContainer').on('click', '#videoTab', getVideoData);
-
-}
-
 function generateTabDom() {
-
-    //alert('hi');
-    //var tabContainer = $('.tabContainer');
-
     var tab = $('<div>', {
         class: 'tab'
     });
 
     var categoryArr = ['recipeTab', 'videoTab'];
-    for (var i = 0; i < 3; i++) {
-        var tabButton = $('<button>', {
+    for (var i = 0; i < 2; i++) {
+        var tabButton = $('<div>', {
             class: `tablinks  ${categoryArr[i]}Button`,
-            text: categoryArr[i],
+            // text: categoryArr[i],
 
         });
         tab.append(tabButton);
@@ -51,8 +36,7 @@ function generateTabDom() {
         $('.tabContainer').append(tab);
     } //end for
 
-    var recipeTab = 
-    $('<div>', {
+    var recipeTab = $('<div>', {
         id: 'recipeTab',
         class: 'tabcontent',
         'h3': 'Recipe'
@@ -60,45 +44,43 @@ function generateTabDom() {
 
     var videoTab = $('<div>', {
         id: 'videoTab',
-        class: 'tabcontent getyoutubeV',
+        class: 'tabcontent',
         'h3': 'Video'
     });
 
     var youtubeContainer = $('<div>', {
         class: 'youtubeContainer'
     });
-
-    var youtubeButton = $('<button>', {
-        id: 'getYoutube',
-        class: 'btn btn-outline-primary',
-        text: 'Get youtube'
-    });
-    var i = $('<i>', {
-        class: "fa fa-youtube"
-    });
-    youtubeButton.append(i);
-    youtubeContainer.append(youtubeButton);
+    // var youtubeButton = $('<button>', {
+    //     id: 'getYoutube',
+    //     class: 'btn btn-outline-primary',
+    //     text: 'Get youtube'
+    // });
+    // var i = $('<i>', {
+    //     class: "fa fa-youtube"
+    // });
+    // youtubeButton.append(i);
+    //youtubeContainer.append(youtubeButton);
     videoTab.append(youtubeContainer);
 
-    // var decorateTab = $('<div>', {
-    //     id: 'decorateTab',
-    //     class: 'tabcontent',
-    //     h3: 'Decorate'
-    // });
+    var decorateTab = $('<div>', {
+        id: 'decorateTab',
+        class: 'tabcontent',
+        h3: 'Decorate'
+    });
 
-    $('.tabContainer').append(recipeTab);
-    $('.tabContainer').append(videoTab);
+    $('#cakePage').append(recipeTab);
+    $('.vidPage').append(videoTab);
     // $('.tabContainer').append(decorateTab);
 
 } // end generateTabDom()
 
-function getVideoData() {
-    alert('hi');
+function getVideoData(searchTerm) {
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
-    let q = 'salt chocolate  cupcake';
+    let q = searchTerm;
     //let q = $('input').val()
     let type = 'video'
-    let maxResult = 3;
+    let maxResult = 6;
     $.ajax({
         url: url,
         method: 'post',
@@ -144,3 +126,14 @@ function generateVideoDOM(videoList) {
     } //end for loop
 
 } //end generateDOM()
+
+
+function showModal() {
+
+    alert('model');
+    $('#modelShadow').css('display', 'block');
+    setTimeout(function () {
+    
+        $('#modelShadow').css('display', 'none');
+    }, 5000);
+}// end showWinModal()
