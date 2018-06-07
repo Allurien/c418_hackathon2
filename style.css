@@ -53,23 +53,54 @@ body{
     height: 100%;
 }
 .cakeHeader{
-    background-color: darkslateblue;
-    height: 15vw;
+    background-image: url("images/headerBanner.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 30vw;
 }
 
 /* .tabContainer{
     height: 10vh;
 } */
-.tab {
+.tabContainer {
+    background-image: url("images/topbar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow: hidden;
+    height: 19vmin;
+    width: 96vmin;
+    display: none;
+}
+.tab {
+    margin-left: 2%;
+    
     /* border: 1px solid rgb(202, 80, 80); */
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
 }
 
 /* Style the buttons inside the tab */
+.recipeTabButton{
+    background-image: url("images/recipeCupcake.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 19vmin;
+    width: 34vmin;
+    display: inline-block;
+    margin: 2% 0 0 1%;
+}
+.videoTabButton {
+    background-image: url("images/videosCupcake.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 19vmin;
+    width: 34vmin;
+    display: inline-block;
+    margin: 2% 0 0 0;
+}
 .tab button {
+
     color: black;
-    background-color: inherit;
+    /* background-color: inherit; */
     float: left;
     border: none;
     outline: none;
@@ -80,20 +111,20 @@ body{
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+/* .tab button:hover {
     background-color: #ddd;
-}
+} */
 
 /* Create an active/current tablink class */
-.tab button.active {
+/* .tab button.active {
     background-color: #ccc;
-}
+} */
 
 /* Style the tab content */
 .tabcontent {
     /* display: none; */
     padding: 6px 12px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-top: none;
 }
 /* ---------------------------------------------------- */
@@ -107,6 +138,7 @@ body{
     font-size: 6vmin;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .selectQ{
