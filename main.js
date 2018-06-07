@@ -111,6 +111,7 @@ function callCupcakePage(mood, flavor){
     $(".tab").prepend(adddiv1);
     $(".tab").css("display", "block");
     generateTabDom();
+    $(".tabContainer").css("display", "block");
     $(".selectQ").addClass("cakeName").removeClass("selectQ").text('').appendTo("#recipeTab");
     $(".selectBox1").addClass("cakeImg").removeClass("selectBox1").text('').appendTo("#recipeTab");
     $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('').appendTo("#recipeTab");

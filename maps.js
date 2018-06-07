@@ -2,18 +2,24 @@ let map;
 let mapWindow;
 
 function createMapElements() {
-    const zipCodeLabel = $("<label>", {
-        class: "zipLayout",
-        text: "Please enter a 5 digit zip code: "
+    // const zipCodeLabel = $("<label>", {
+    //     class: "zipLayout",
+    //     text: "Please enter a 5 digit zip code: "
+    // });
+    const zipCodeContainer = $("<div>", {
+        class: "zipContainer"
     });
     const zipCodeInput = $("<input>", {
         id: "zipcode",
         type: "text",
-        maxLength: "5"
+        maxLength: "5",
+        placeholder: "Enter a zip code",
+        class: "zipInput"
     });
-    const submitButton = $("<button>", {
+    const submitButton = $("<div>", {
         id: "submit",
-        text: "Submit"
+        text: "Submit",
+        class: "zipInput"
     });
     const restartButton = $("<div>", {
         class: "restartButton",
@@ -24,8 +30,9 @@ function createMapElements() {
     });
     $("#map").css("height", "50vh");
     $(restartButton).css("display", "block").css("margin", "auto");
-    $(zipCodeLabel).append(zipCodeInput);
-    $(".selectQ").prepend(zipCodeLabel, submitButton);
+    // $(zipCodeLabel).append(zipCodeInput);
+    $(zipCodeContainer).append(zipCodeInput, submitButton)
+    $(".selectQ").prepend(zipCodeContainer);
     $(".mapLayout").append(restartButton);
     $("#submit").on("click", onlyNumbers);
 }
