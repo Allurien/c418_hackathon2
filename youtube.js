@@ -76,10 +76,9 @@ function generateTabDom() {
 } // end generateTabDom()
 
 function getVideoData(searchTerm) {
-    $('#videoTab').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" class = "videoLoader"/>'));
+    $('#videoTab').addClass('videoLoaded').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" class = "videoLoader"/>'));
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = searchTerm;
-    //let q = $('input').val()
     let type = 'video'
     let maxResult = 6;
     $.ajax({
