@@ -124,8 +124,9 @@ function generateVideoDOM(videoList) {
         });
         
         $('.youtubeContainer').append(iframe);
+        
     } //end for loop
-
+    appendRestart('.vidPage');
 } //end generateDOM()
 
 
