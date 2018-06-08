@@ -331,7 +331,7 @@ let getRecipesById = (recipeID) => {
                 $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe').on("click", function() {     
                     showIngredientModel(recipeData.instructions); 
                 }));
-                appendRestart();
+                appendRestart('.recipeBox');
                              
             };
             addRecipeToDOM(); 
@@ -339,3 +339,12 @@ let getRecipesById = (recipeID) => {
     };    
     $.ajax(settings);
 }
+appendRestart = (location) => {
+    let appendLocation = location;
+    let restartDiv = $("<div>").addClass('restartRow');
+    $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
+    $("<div>").addClass('col-xs-4 restartButton').on("click", startOver).appendTo(restartDiv).text(' ');
+    $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
+    $(appendLocation).append(restartDiv); 
+};
+

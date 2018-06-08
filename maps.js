@@ -23,7 +23,7 @@ function createMapElements() {
     });
     const restartButton = $("<div>", {
         class: "restartButton",
-        text: "Restart",
+        text: "",
         on: {
             click: startOver
         }
