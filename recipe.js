@@ -107,7 +107,7 @@ let getRecipesById = (recipeID) => {
             processMarkers();
             // Passes recipeData into the appropriate DOM elements
             addRecipeToDOM = () => {
-                $('.cakeImg').remove();
+                $('.recipeLoader').remove();
                 $('.cakeName').append($("<h2>").text(recipeData.name).addClass('recipe'));
                 $('.cakeImg').append(`<img src= "${recipeData.image}" alt= ${recipeData.name}/>`);
                 addMarkers = () => {
@@ -143,11 +143,8 @@ let getRecipesById = (recipeID) => {
                 appendRestart();
                              
             };
-
-            addRecipeToDOM();
-            
+            addRecipeToDOM(); 
         },
-
     };    
     $.ajax(settings);
 }

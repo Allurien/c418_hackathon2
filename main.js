@@ -9,8 +9,11 @@ function allTheThings(){
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
     $('.tabContainer').on('click','.videoTabButton', function(){
+        if ($('#videoTab').hasClass('videoLoaded')){
+            return;
+        } else {
         getVideoData(searchString);
-        
+        }
     });
 };
 
@@ -119,10 +122,8 @@ function callCupcakePage(mood, flavor){
     $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('').appendTo("#recipeTab");
     let adddiv2 = $("<div>").addClass("recipeBox");
     $("#recipeTab").append(adddiv2);
-    $('.cakeImg').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" />'));
-    
+    $('.cakeImg').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" class = "recipeLoader"/>'));
     cupcakeChooser(mood, flavor);
-
     $(".row").css("display", "block");
     $(".restart1").css("display", "none");
 };
