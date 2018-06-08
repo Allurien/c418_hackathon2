@@ -173,6 +173,65 @@ function clickReset(){
     $(".ansText1, .ansText2").off("click");
 };
 
+            // Passes recipeData into the appropriate DOM elements
+            addRecipeToDOM = () => {
+                $('.cakeName').append($("<h2>").text(recipeData.name).addClass('recipe'));
+                //$('.cakeImg').append(`<img src= "${recipeData.image}" alt= ${recipeData.name}/>`);
+                $('.cakeImg').append($('<img>').attr('src', recipeData.image).attr("alt", recipeData.name).on("click", function() {
+
+                    showRecipePICModel(recipeData.image); 
+                }));
+                addMarkers = () => {
+                    if(markerList.length === 0){
+                        $('.allergyBar').css('display', 'none');
+                    } else {
+                    
+                        let markersToAdd = markerList;
+                        markersToAdd.forEach((marker) => {
+                            for(let key in marker)
+                                switch (key){
+                                    case 'vegetarian':
+                                        $('.allergyBar').append(`<img src= "images/vegetarian.png" alt= ${marker.key}/>)`);
+                                        break;
+                                    case 'vegan':
+                                        $('.allergyBar').append(`<img src= "images/vegan.png" alt= ${marker.key}/>)`);
+                                        break;
+                                    case 'glutenFree':
+                                        $('.allergyBar').append(`<img src= "images/noGluten.png" alt= ${marker.key}/>)`);
+                                        break;
+                                    case 'dairyFree':
+                                        $('.allergyBar').append(`<img src= "images/noDairy.png" alt= ${marker.key}/>)`);
+                                        break;
+                                }
+                        });
+                    };
+                };
+                addMarkers();
+                $('.recipeBox').append($("<h2>").text('Ingredients').addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe').on("click", function() {       
+                    showIngredientModel(recipeData.ingredients); 
+                }));
+
+                $('.recipeBox').append($("<h2>").text('Instructions').addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe').on("click", function() {     
+                    showIngredientModel(recipeData.instructions); 
+                }));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe').on("click", function() {      
+                    showIngredientModel(recipeData.ingredients); 
+                }));
+                
+            };
+
+            addRecipeToDOM();
+            
+        },
+
+    };    
+    $.ajax(settings);
+}
 appendRestart = (location) => {
     let appendLocation = location;
     let restartDiv = $("<div>").addClass('restartRow');
@@ -181,3 +240,4 @@ appendRestart = (location) => {
     $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
     $(appendLocation).append(restartDiv); 
 };
+
