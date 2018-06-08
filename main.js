@@ -277,7 +277,11 @@ let getRecipesById = (recipeID) => {
             // Passes recipeData into the appropriate DOM elements
             addRecipeToDOM = () => {
                 $('.cakeName').append($("<h2>").text(recipeData.name).addClass('recipe'));
-                $('.cakeImg').append(`<img src= "${recipeData.image}" alt= ${recipeData.name}/>`);
+                //$('.cakeImg').append(`<img src= "${recipeData.image}" alt= ${recipeData.name}/>`);
+                $('.cakeImg').append($('<img>').attr('src', recipeData.image).attr("alt", recipeData.name).on("click", function() {
+
+                    showRecipePICModel(recipeData.image); 
+                }));
                 addMarkers = () => {
                     if(markerList.length === 0){
                         $('.allergyBar').css('display', 'none');
@@ -305,10 +309,20 @@ let getRecipesById = (recipeID) => {
                 };
                 addMarkers();
                 $('.recipeBox').append($("<h2>").text('Ingredients').addClass('recipe'));
-                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe').on("click", function() {       
+                    showIngredientModel(recipeData.ingredients); 
+                }));
+
                 $('.recipeBox').append($("<h2>").text('Instructions').addClass('recipe'));
-                $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe'));
-                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe'));
+                //$('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe').on("click", function() {     
+                    showIngredientModel(recipeData.instructions); 
+                }));
+                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe').on("click", function() {      
+                    showIngredientModel(recipeData.ingredients); 
+                }));
                 
             };
 

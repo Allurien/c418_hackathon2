@@ -276,3 +276,59 @@ body{
     text-align: center;
 }
 
+
+
+
+
+/* model */
+#recipePICModelShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, .8);
+    display: none;
+    
+  }
+
+  #recipePICModelBody {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+   
+    min-width: 80%;
+    min-height: 80%;
+    
+    /* background-image: url(images/banner.png); */
+    background-size:cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  #recipeIngredientModelShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, .8);
+    display: none;
+  }
+
+  #recipeIngredientModelBody {
+    color: 102, 51, 0;
+    position: fixed;
+    font-size: 1.5em;
+    left: 50%;
+    top: 50%;
+    min-width: 80%;
+    min-height: 80%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+    background-color: lavender;
+    padding: 3%;
+  }
