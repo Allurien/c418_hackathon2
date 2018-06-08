@@ -196,7 +196,8 @@ body{
     display: none;
 }
 .restartButton{
-    background-color: palegreen;
+    background-image: url('images/resetcupcake.png');
+    /* background-color: palegreen; */
     height: 10vw;
     width: 35vw;
     line-height: 10vw;
@@ -274,5 +275,12 @@ body{
 .recipe {
     display: flex;
     text-align: center;
+    padding: 4vmin;
 }
-
+.ingredientDisplay {
+    list-style-type: none;
+    padding: 0;
+}
+.youtubeContainer {
+    text-align: center;
+}

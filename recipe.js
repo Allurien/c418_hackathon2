@@ -136,11 +136,20 @@ let getRecipesById = (recipeID) => {
                     };
                 };
                 addMarkers();
+                addIngredients = () => {
+                    let ingredientUL = $('<ul>').addClass('ingredientDisplay');
+                    displayIngredients.forEach((ingredient) => {
+                        // let ingredientToAppend = ingredient;
+                        $('<li>').text(ingredient).appendTo(ingredientUL);
+                    });
+                    $('.ingredientList').append(ingredientUL);
+                };
                 $('.recipeBox').append($("<h2>").text('Ingredients').addClass('recipe'));
-                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe'));
+                $('.recipeBox').append($("<p>").addClass('recipe ingredientList'));
+                addIngredients();
                 $('.recipeBox').append($("<h2>").text('Instructions').addClass('recipe'));
                 $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe'));
-                appendRestart();
+                appendRestart('#cakePage');
                              
             };
             addRecipeToDOM(); 
