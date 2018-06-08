@@ -177,7 +177,7 @@ appendRestart = (location) => {
     let appendLocation = location;
     let restartDiv = $("<div>").addClass('restartRow');
     $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
-    $("<div>").addClass('col-xs-4 restartButton').appendTo(restartDiv).text('Restart');
+    $("<div>").addClass('col-xs-4 restartButton').on("click", startOver).appendTo(restartDiv).text(' ');
     $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
     $(appendLocation).append(restartDiv); 
 };
