@@ -9,7 +9,11 @@ function allTheThings(){
     $('#getTabDom').on('click', generateTabDom);
     //event delegation
     $('.tabContainer').on('click','.videoTabButton', function(){
+        if ($('#videoTab').hasClass('videoLoaded')){
+            return;
+        } else {
         getVideoData(searchString);
+        }
     });
 };
 
@@ -118,9 +122,10 @@ function callCupcakePage(mood, flavor){
     $(".selectBox2").addClass("allergyBar").removeClass("selectBox2").text('').appendTo("#recipeTab");
     let adddiv2 = $("<div>").addClass("recipeBox");
     $("#recipeTab").append(adddiv2);
+    $('.cakeImg').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" class = "recipeLoader"/>'));
     cupcakeChooser(mood, flavor);
-
     $(".row").css("display", "block");
+    $(".restart1").css("display", "none");
 };
 
 //---------------------------------Randomizer based on mood here------------------------------------
@@ -157,6 +162,7 @@ function backToCupcakePage(){
     $(".decoPage").css("display", "none");
     $(".vidPage").css("display", "none");
     $(".cakePage").css("display", "block");
+    $(".restart1").css("display", "none");
 }
 
 function startOver(){
@@ -167,113 +173,6 @@ function clickReset(){
     $(".ansText1, .ansText2").off("click");
 };
 
-// Recipe API Data
-let selectAndCallRecipe = (mood, flavor) => {
-    // Mood Object
-    // Needs to store a sweet array and a salty array for each mood
-    // Needs to store random meme array for each mood
-let moodChoice = {
-    happy: {
-        // Arrays hold prechosen spoonacular id's for the selected array
-        sweet: [
-            {
-                "id": 537588,
-            }
-        ],
-        salty: [
-            {
-                "id": 228778,
-            }
-        ],
-        memes: [],
-        sounds: {},
-    },
-    sad: {
-        // Arrays hold prechosen spoonacular id's for the selected array
-        sweet: [
-            {
-                "id": 592834,
-            }
-        ],
-        salty: [
-            {
-                "id": 618651,
-            }
-        ],
-        memes: [],
-        sounds: {},
-    }, 
-
-}
-let cupcakes = moodChoice[mood][flavor];
-let memes = moodChoice[mood].memes;
-
-    
-    
-    randomizer =  (cupcakes) => {
-        let randomFlavor = Math.floor(Math.random() * cupcakes.length);
-        console.log(cupcakes[randomFlavor].id);
-        let chosenCupcake =  cupcakes[randomFlavor].id;
-        getRecipesById(chosenCupcake);
-    };
-    randomizer(cupcakes);
-
-};
-// Spoonacular Get Data by ID Call
-let getRecipesById = (recipeID) => {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${recipeID}/information`,
-        "method": "GET",
-        "headers": {
-          "X-Mashape-Key": "G0IPHpFlIZmsh6Dz5xUk6tR1dZ2Op1JozqAjsnaGyvKIrjwvgC",
-          "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com",
-          "Cache-Control": "no-cache",
-        },
-        "success": (results) => {
-            // Process AJAX call and pass relevant properties into a saved object for use later
-            let displayIngredients = [];
-            let markerList = [];
-            getIngredients = () => {
-                let ingredientList = results.extendedIngredients;
-                ingredientList.forEach((recipe) => {
-                    let ingredientData = recipe.original;
-                    displayIngredients.push(ingredientData);
-                });
-                console.log(displayIngredients); 
-            };
-            let recipeData = {
-                "name": results.title,
-                "image": results.image,
-                "source": results.sourceUrl,
-                "ingredients": displayIngredients,
-                "markers": [
-                    {"vegetarian": results.vegetarian},
-                    {"vegan": results.vegan},
-                    {"glutenFree": results.glutenFree},
-                    {"dairyFree": results.dairyFree},
-                ],
-                "smartPoints": results.weightWatcherSmartPoints,
-                "instructions": results.instructions,
-                "winePairing": results.winePairing,
-                "readyInMinutes": results.readyInMinutes,
-                "servings": results.servings,
-            }
-            searchString = recipeData.name;
-            getIngredients();
-            processMarkers = () => {
-                let markersToProcess = recipeData.markers;
-                markersToProcess.forEach((marker) => {
-                    for (let key in marker) {
-                        let markerToEvaluate = (marker[key]);
-                        if (markerToEvaluate){
-                            markerList.push(marker);
-                        }
-                    }
-                });
-            };
-            processMarkers();
             // Passes recipeData into the appropriate DOM elements
             addRecipeToDOM = () => {
                 $('.cakeName').append($("<h2>").text(recipeData.name).addClass('recipe'));
@@ -333,3 +232,10 @@ let getRecipesById = (recipeID) => {
     };    
     $.ajax(settings);
 }
+appendRestart = () => {
+    let restartDiv = $("<div>").addClass('restartRow');
+    $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
+    $("<div>").addClass('col-xs-4 restartButton').appendTo(restartDiv).text('Restart');
+    $("<div>").addClass('col-xs-4').appendTo(restartDiv).text(' ');
+    $('#cakePage').append(restartDiv); 
+};

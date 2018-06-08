@@ -76,9 +76,9 @@ function generateTabDom() {
 } // end generateTabDom()
 
 function getVideoData(searchTerm) {
+    $('#videoTab').addClass('videoLoaded').append($('<img src= "images/loaderCupcake.gif" alt = "Waiting for sweetness!" class = "videoLoader"/>'));
     let url = 'https://s-apis.learningfuze.com/hackathon/youtube/search.php';
     let q = searchTerm;
-    //let q = $('input').val()
     let type = 'video'
     let maxResult = 6;
     $.ajax({
@@ -110,6 +110,7 @@ function generateVideoDOM(videoList) {
     console.log('inside generateDom video ', videoList);
     //{title: "Cupcake Decorating Ideas | FUN and Easy Cupcake Recipes by So Yummy", 
     //    id: "YsxtAMlWfj8"}
+    $('.videoLoader').remove();
     for (let i = 0; i < videoList.length; i++) {
         let videoID = videoList[i].id;
         console.log('video id ', videoID);
@@ -121,7 +122,7 @@ function generateVideoDOM(videoList) {
             src: showURL,
             'allowfullscreen': true
         });
-
+        
         $('.youtubeContainer').append(iframe);
     } //end for loop
 
