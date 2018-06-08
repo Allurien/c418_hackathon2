@@ -323,15 +323,24 @@ let getRecipesById = (recipeID) => {
                     };
                 };
                 addMarkers();
+                addIngredients = () => {
+                    let ingredientUL = $('<ul>').addClass('ingredientDisplay');
+                    displayIngredients.forEach((ingredient) => {
+                        // let ingredientToAppend = ingredient;
+                        $('<li>').text(ingredient).appendTo(ingredientUL);
+                    });
+                    $('.ingredientList').append(ingredientUL);
+                };
                 $('.recipeBox').append($("<h2>").text('Ingredients').addClass('recipe'));
-                $('.recipeBox').append($("<p>").text(recipeData.ingredients).addClass('recipe').on("click", function() {       
+                $('.recipeBox').append($("<p>").addClass('recipe ingredientList').on("click", function() {       
                     showIngredientModel(recipeData.ingredients); 
                 }));
+                addIngredients();
                 $('.recipeBox').append($("<h2>").text('Instructions').addClass('recipe'));
                 $('.recipeBox').append($("<p>").text(recipeData.instructions).addClass('recipe').on("click", function() {     
                     showIngredientModel(recipeData.instructions); 
                 }));
-                appendRestart('.recipeBox');
+                appendRestart('#cakePage');
                              
             };
             addRecipeToDOM(); 
