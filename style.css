@@ -232,12 +232,15 @@ body{
 
 /* model */
 #modelShadow {
+    background-image: url("images/9cakes.gif");
+    background-position: center;
+    background-size: contain;
     position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0, .8);
+    /* background-color: rgba(0,0,0, .8); */
     display: none;
     
   }
@@ -257,19 +260,24 @@ body{
   }
 
   #modelBody img {
-      width: 80%;
+      width: 125%;
       background-size:cover;
-      border-radius: 15px;
-      margin: 25% 20%;
+      /* border-radius: 15px; */
+      border: 5px solid floralwhite;
+      margin: 26% 0%;
       position: absolute;
 
   }
 
   .startApp {
-      color: lavender;
-      width: 45%;
+      color: lightcoral;
+      font-weight: bold;
+      width: 50%;
+      text-align: center;
       font-size: 1.5em;
-      margin: 55% 38%;
+      margin: 104% 38%;
+      background: floralwhite;
+      border: 5px outset floralwhite;
       position: absolute;
   }
 /* Recipe Section */
